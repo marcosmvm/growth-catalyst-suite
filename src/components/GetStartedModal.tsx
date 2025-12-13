@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { ArrowRight, ArrowLeft, CheckCircle } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface GetStartedModalProps {
   open: boolean;
@@ -57,9 +58,22 @@ const GetStartedModal = ({ open, onOpenChange }: GetStartedModalProps) => {
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("Form submitted:", formData);
+    
+    const { error } = await supabase.from('audit_requests').insert({
+      email: formData.email,
+      current_efforts: formData.currentEfforts,
+      sending_cadence: formData.sendingCadence,
+      reply_rate: formData.replyRate,
+      email_example: formData.emailExample || null,
+    });
+
+    if (error) {
+      console.error("Error submitting audit request:", error);
+      toast({ title: "Error submitting request", description: "Please try again.", variant: "destructive" });
+      setIsSubmitting(false);
+      return;
+    }
+
     setIsSubmitting(false);
     setSubmitted(true);
     toast({ title: "Your audit request has been submitted!", description: "We'll be in touch soon." });
