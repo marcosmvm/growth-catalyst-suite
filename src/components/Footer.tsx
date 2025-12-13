@@ -1,29 +1,21 @@
 import { Link } from "react-router-dom";
 
 const footerLinks = {
-  Platform: [
-    { label: "Features", href: "#" },
-    { label: "Integrations", href: "#" },
-    { label: "Pricing", href: "#" },
-    { label: "Changelog", href: "#" },
+  Services: [
+    { label: "Lead Generation", href: "/services" },
+    { label: "Cold Email Campaigns", href: "/services" },
+    { label: "Appointment Setting", href: "/services" },
+    { label: "How It Works", href: "/how-it-works" },
   ],
-  Solutions: [
-    { label: "Sales Teams", href: "#" },
-    { label: "Agencies", href: "#" },
-    { label: "Recruiters", href: "#" },
-    { label: "Startups", href: "#" },
+  Company: [
+    { label: "About", href: "/about" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Contact", href: "/contact" },
   ],
   Resources: [
     { label: "Blog", href: "#" },
+    { label: "Case Studies", href: "#" },
     { label: "Help Center", href: "#" },
-    { label: "Templates", href: "#" },
-    { label: "Webinars", href: "#" },
-  ],
-  Company: [
-    { label: "About", href: "#" },
-    { label: "Careers", href: "#" },
-    { label: "Contact", href: "#" },
-    { label: "Partners", href: "#" },
   ],
 };
 
@@ -52,12 +44,21 @@ const Footer = () => {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.label}
-                    </a>
+                    {link.href.startsWith("/") ? (
+                      <Link
+                        to={link.href}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

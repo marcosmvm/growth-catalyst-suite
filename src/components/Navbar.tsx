@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,28 +20,27 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <div className="flex items-center gap-1 cursor-pointer group">
-              <span className="text-muted-foreground group-hover:text-foreground transition-colors">Platform</span>
-              <ChevronDown className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-            </div>
-            <div className="flex items-center gap-1 cursor-pointer group">
-              <span className="text-muted-foreground group-hover:text-foreground transition-colors">Solutions</span>
-              <ChevronDown className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-            </div>
+            <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">
+              Services
+            </Link>
+            <Link to="/how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
+              How It Works
+            </Link>
             <Link to="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
               Pricing
             </Link>
-            <div className="flex items-center gap-1 cursor-pointer group">
-              <span className="text-muted-foreground group-hover:text-foreground transition-colors">Resources</span>
-              <ChevronDown className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
-            </div>
+            <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+              About
+            </Link>
+            <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+              Contact
+            </Link>
           </div>
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="nav" size="sm">Log in</Button>
             <Button variant="outline" size="sm">Schedule a demo</Button>
-            <Button variant="hero" size="sm">Try for free</Button>
+            <Button variant="hero" size="sm">Get Started</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -57,13 +56,24 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-border/50 pt-4 animate-fade-in">
             <div className="flex flex-col gap-4">
-              <span className="text-muted-foreground">Platform</span>
-              <span className="text-muted-foreground">Solutions</span>
-              <span className="text-muted-foreground">Pricing</span>
-              <span className="text-muted-foreground">Resources</span>
+              <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
+                Services
+              </Link>
+              <Link to="/how-it-works" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
+                How It Works
+              </Link>
+              <Link to="/pricing" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
+                Pricing
+              </Link>
+              <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
+                About
+              </Link>
+              <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
+                Contact
+              </Link>
               <div className="flex flex-col gap-2 pt-4">
-                <Button variant="outline" className="w-full">Log in</Button>
-                <Button variant="hero" className="w-full">Try for free</Button>
+                <Button variant="outline" className="w-full">Schedule a demo</Button>
+                <Button variant="hero" className="w-full">Get Started</Button>
               </div>
             </div>
           </div>
