@@ -1,0 +1,75 @@
+import { Mail, Target, BarChart3, Zap, Users, Shield } from "lucide-react";
+
+const features = [
+  {
+    icon: Mail,
+    title: "Smart Email Sequences",
+    description: "Create multi-step email campaigns with AI-powered personalization that adapts to recipient behavior.",
+  },
+  {
+    icon: Target,
+    title: "Lead Scoring",
+    description: "Automatically prioritize your hottest leads with intelligent scoring based on engagement signals.",
+  },
+  {
+    icon: BarChart3,
+    title: "Advanced Analytics",
+    description: "Track open rates, click-through rates, and reply rates with comprehensive dashboards.",
+  },
+  {
+    icon: Zap,
+    title: "Automated Follow-ups",
+    description: "Never miss a follow-up again. Smart scheduling ensures perfect timing for maximum response.",
+  },
+  {
+    icon: Users,
+    title: "Team Collaboration",
+    description: "Work together seamlessly with shared templates, campaigns, and real-time performance insights.",
+  },
+  {
+    icon: Shield,
+    title: "Deliverability Protection",
+    description: "Advanced warming and domain reputation management keeps your emails out of spam folders.",
+  },
+];
+
+const FeaturesSection = () => {
+  return (
+    <section className="py-24 bg-card/30">
+      <div className="container mx-auto px-6">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-6">
+            Own every outreach touchpoint
+          </h2>
+          <p className="text-lg text-muted-foreground">
+            From first contact to closed deal, our platform optimizes every step of your cold email journey.
+          </p>
+        </div>
+
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <div
+              key={feature.title}
+              className="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 card-shadow hover:scale-105"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <feature.icon className="w-7 h-7 text-primary-foreground" />
+              </div>
+              <h3 className="text-xl font-heading text-foreground mb-3">
+                {feature.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FeaturesSection;
