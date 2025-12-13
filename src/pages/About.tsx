@@ -33,14 +33,20 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main>
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 px-6">
-          <div className="container mx-auto max-w-4xl">
+        {/* Hero Section with Premium Effects */}
+        <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          </div>
+
+          <div className="container mx-auto max-w-4xl relative z-10">
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
             >
               About OutreachAI
             </motion.span>
@@ -63,9 +69,11 @@ const About = () => {
           </div>
         </section>
 
-        {/* Story Section */}
-        <section className="py-20 px-6 bg-card">
-          <div className="container mx-auto max-w-4xl">
+        {/* Story Section with Premium Styling */}
+        <section className="py-20 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+          
+          <div className="container mx-auto max-w-4xl relative z-10">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -40 }}
@@ -93,9 +101,10 @@ const About = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
-                className="bg-background rounded-2xl p-8 border border-border"
+                className="glass rounded-2xl p-8 border border-primary/20 relative overflow-hidden"
               >
-                <div className="space-y-6">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
+                <div className="space-y-6 relative z-10">
                   <div>
                     <div className="text-4xl font-heading text-primary mb-1">500+</div>
                     <div className="text-muted-foreground">Campaigns delivered</div>
@@ -114,7 +123,7 @@ const About = () => {
           </div>
         </section>
 
-        {/* What We Do */}
+        {/* What We Do with Premium Styling */}
         <section className="py-20 px-6">
           <div className="container mx-auto max-w-4xl">
             <motion.div
@@ -148,7 +157,7 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border"
+                  className="flex items-center gap-3 p-4 glass rounded-lg border border-border/50 hover:border-primary/20 transition-colors"
                 >
                   <div className="w-8 h-8 rounded-full gradient-bg flex items-center justify-center flex-shrink-0">
                     <span className="text-primary-foreground font-semibold text-sm">{index + 1}</span>
@@ -160,9 +169,11 @@ const About = () => {
           </div>
         </section>
 
-        {/* Values */}
-        <section className="py-20 px-6 bg-card">
-          <div className="container mx-auto max-w-4xl">
+        {/* Values with Premium Styling */}
+        <section className="py-20 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+          
+          <div className="container mx-auto max-w-4xl relative z-10">
             <motion.h2 
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -180,7 +191,7 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex gap-4"
+                  className="flex gap-4 glass rounded-2xl p-6 border border-border/50 hover:border-primary/20 transition-colors"
                 >
                   <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center flex-shrink-0">
                     <value.icon className="w-6 h-6 text-primary-foreground" />
@@ -195,14 +206,19 @@ const About = () => {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 px-6">
+        {/* CTA with Premium Styling */}
+        <section className="py-20 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-1/4 w-48 h-48 bg-accent/10 rounded-full blur-3xl" />
+          </div>
+
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="container mx-auto text-center max-w-3xl"
+            className="container mx-auto text-center max-w-3xl relative z-10"
           >
             <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
               Let's Build Your Pipeline Together
@@ -215,7 +231,7 @@ const About = () => {
                 Schedule a Call <ArrowRight className="w-4 h-4" />
               </Button>
               <Link to="/pricing">
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/10">
                   View Pricing
                 </Button>
               </Link>
