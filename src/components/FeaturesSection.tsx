@@ -1,71 +1,80 @@
 import { motion } from "framer-motion";
-import { Mail, Target, BarChart3, Zap, Users, Shield } from "lucide-react";
+import { Mail, Target, BarChart3, Zap, Users, Shield, Sparkles } from "lucide-react";
 
 const features = [
   {
     icon: Mail,
-    title: "Smart Email Sequences",
-    description: "Create multi-step email campaigns with AI-powered personalization that adapts to recipient behavior.",
+    title: "Intelligent Sequences",
+    description: "AI-crafted email flows that adapt in real-time based on recipient behavior and engagement signals.",
   },
   {
     icon: Target,
-    title: "Lead Scoring",
-    description: "Automatically prioritize your hottest leads with intelligent scoring based on engagement signals.",
+    title: "Predictive Scoring",
+    description: "Machine learning algorithms that identify your highest-value prospects before they even engage.",
   },
   {
     icon: BarChart3,
-    title: "Advanced Analytics",
-    description: "Track open rates, click-through rates, and reply rates with comprehensive dashboards.",
+    title: "Deep Analytics",
+    description: "Real-time performance intelligence with actionable insights to optimize every touchpoint.",
   },
   {
     icon: Zap,
-    title: "Automated Follow-ups",
-    description: "Never miss a follow-up again. Smart scheduling ensures perfect timing for maximum response.",
+    title: "Autonomous Follow-ups",
+    description: "Self-optimizing timing algorithms ensure perfect delivery moments for maximum response rates.",
   },
   {
     icon: Users,
-    title: "Team Collaboration",
-    description: "Work together seamlessly with shared templates, campaigns, and real-time performance insights.",
+    title: "Team Intelligence",
+    description: "Unified workspace with shared learnings, templates, and performance benchmarks across your organization.",
   },
   {
     icon: Shield,
-    title: "Deliverability Protection",
-    description: "Advanced warming and domain reputation management keeps your emails out of spam folders.",
+    title: "Enterprise Security",
+    description: "Bank-grade encryption, SOC 2 compliance, and advanced domain reputation management.",
   },
 ];
 
 const FeaturesSection = () => {
   return (
-    <section className="py-24 bg-card/30">
-      <div className="container mx-auto px-6">
+    <section className="py-32 relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 mesh-gradient opacity-50" />
+      <div className="orb-glow w-[400px] h-[400px] bg-accent/15 top-0 right-0" style={{ animationDelay: '-3s' }} />
+      
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center max-w-3xl mx-auto mb-20"
         >
-          <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-6">
-            Own every outreach touchpoint
+          <div className="exclusive-badge rounded-full mb-6 inline-flex">
+            <Sparkles className="w-3 h-3" />
+            Capabilities
+          </div>
+          <h2 className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight">
+            Technology that{" "}
+            <span className="gradient-text italic">outperforms</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            From first contact to closed deal, our platform optimizes every step of your cold email journey.
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Every feature engineered to give you an unfair advantage in outbound. This is what happens when AI meets precision.
           </p>
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-              className="group p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 card-shadow hover:scale-105"
+              transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="group premium-card p-8 rounded-2xl"
             >
-              <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                 <feature.icon className="w-7 h-7 text-primary-foreground" />
               </div>
               <h3 className="text-xl font-heading text-foreground mb-3">

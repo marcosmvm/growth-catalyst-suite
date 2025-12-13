@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-image.png";
 import GetStartedModal from "./GetStartedModal";
 
@@ -11,102 +11,130 @@ const HeroSection = () => {
   return (
     <>
       <section className="relative min-h-screen pt-24 pb-16 overflow-hidden">
-        {/* Background Glow */}
+        {/* Animated background orbs */}
+        <div className="orb-glow w-[600px] h-[600px] bg-primary/20 -top-[200px] -left-[200px]" />
+        <div className="orb-glow w-[500px] h-[500px] bg-accent/20 -bottom-[100px] -right-[100px]" style={{ animationDelay: '-5s' }} />
+        <div className="orb-glow w-[400px] h-[400px] bg-primary/10 top-1/2 left-1/2" style={{ animationDelay: '-10s' }} />
+        
+        {/* Mesh gradient overlay */}
+        <div className="absolute inset-0 mesh-gradient" />
+        
+        {/* Hero glow */}
         <div className="absolute inset-0 hero-glow" />
         
+        {/* Noise texture */}
+        <div className="absolute inset-0 noise-overlay" />
+        
         <div className="container mx-auto px-6 relative z-10">
-          <div className="flex flex-col items-center text-center max-w-4xl mx-auto pt-12 md:pt-20">
-            {/* Main Headline */}
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
+          <div className="flex flex-col items-center text-center max-w-5xl mx-auto pt-12 md:pt-24">
+            
+            {/* Exclusive badge */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-              className="text-4xl md:text-6xl lg:text-7xl font-heading text-foreground leading-tight"
+              className="exclusive-badge rounded-full mb-8"
             >
-              Powerful tools for{" "}
-              <span className="gradient-text">cold email outreach</span>
+              <Sparkles className="w-3 h-3" />
+              Elite Automation Technology
+            </motion.div>
+
+            {/* Main Headline */}
+            <motion.h1 
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+              className="text-5xl md:text-7xl lg:text-8xl font-heading text-foreground leading-[1.1] tracking-tight text-balance"
+            >
+              The future of{" "}
+              <span className="gradient-text italic">outbound</span>
+              <br />
+              <span className="text-muted-foreground/80">is already here</span>
             </motion.h1>
 
             {/* Subheadline */}
             <motion.p 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-              className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl"
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+              className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed"
             >
-              Optimize your outreach, automate follow-ups, and convert leads faster with AI-powered email intelligence.
+              Advanced AI automation that operates at scale. Reserved for those who understand that the right technology creates unfair advantages.
             </motion.p>
 
             {/* CTA Button */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-              className="mt-10"
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              className="mt-12"
             >
               <Button 
                 variant="hero" 
                 size="lg" 
-                className="group"
+                className="group text-base px-8 py-6 h-auto"
                 onClick={() => setGetStartedOpen(true)}
               >
-                Get Your Free Audit
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                Request Access
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>
 
             {/* Trust Indicators */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-              className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground"
+              transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+              className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground"
             >
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-primary" />
-                <span>No credit card required</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-primary" />
-                <span>Cancel anytime</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-primary" />
-                <span>14-day money back</span>
-              </div>
+              {[
+                "White-glove onboarding",
+                "Enterprise-grade security",
+                "Dedicated success manager"
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-primary" />
+                  <span>{item}</span>
+                </div>
+              ))}
             </motion.div>
 
             {/* Hero Image */}
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-              className="mt-16 w-full max-w-5xl"
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+              className="mt-20 w-full max-w-5xl"
             >
-              <div className="relative rounded-2xl overflow-hidden glow-effect">
+              <div className="relative rounded-2xl overflow-hidden gradient-border">
+                {/* Glow behind image */}
+                <div className="absolute inset-0 glow-effect rounded-2xl" />
+                
                 <img 
                   src={heroImage} 
-                  alt="Cold email outreach platform dashboard showing email analytics and automation"
-                  className="w-full h-auto rounded-2xl"
+                  alt="Advanced AI outreach platform dashboard"
+                  className="w-full h-auto rounded-2xl relative z-10"
                 />
+                
                 {/* Floating Stats */}
                 <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-                  className="absolute top-8 left-8 bg-card/90 backdrop-blur-sm rounded-xl p-4 card-shadow hidden md:block"
+                  transition={{ duration: 0.8, delay: 1, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="absolute top-8 left-8 glass-strong rounded-xl p-5 hidden md:block"
                 >
-                  <p className="text-sm text-muted-foreground">Open Rate</p>
-                  <p className="text-2xl font-bold text-primary">67.8%</p>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Open Rate</p>
+                  <p className="text-3xl font-heading gradient-text">67.8%</p>
                 </motion.div>
+                
                 <motion.div 
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: 1, ease: [0.25, 0.1, 0.25, 1] }}
-                  className="absolute bottom-8 right-8 bg-card/90 backdrop-blur-sm rounded-xl p-4 card-shadow hidden md:block"
+                  transition={{ duration: 0.8, delay: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="absolute bottom-8 right-8 glass-strong rounded-xl p-5 hidden md:block"
                 >
-                  <p className="text-sm text-muted-foreground">Replies Today</p>
-                  <p className="text-2xl font-bold text-foreground">+284</p>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground mb-1">Replies Today</p>
+                  <p className="text-3xl font-heading text-foreground">+284</p>
                 </motion.div>
               </div>
             </motion.div>
@@ -115,17 +143,22 @@ const HeroSection = () => {
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-              className="mt-12 flex items-center gap-3 bg-secondary/50 rounded-full px-6 py-3"
+              transition={{ duration: 0.8, delay: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+              className="mt-16 flex items-center gap-4 glass rounded-full px-8 py-4"
             >
-              <div className="flex -space-x-2">
-                <div className="w-8 h-8 rounded-full bg-primary/30 border-2 border-background" />
-                <div className="w-8 h-8 rounded-full bg-primary/50 border-2 border-background" />
-                <div className="w-8 h-8 rounded-full bg-primary/70 border-2 border-background" />
+              <div className="flex -space-x-3">
+                {[0.4, 0.6, 0.8].map((opacity, i) => (
+                  <div 
+                    key={i}
+                    className="w-10 h-10 rounded-full border-2 border-background"
+                    style={{ background: `linear-gradient(135deg, hsl(185 85% 55% / ${opacity}), hsl(270 60% 60% / ${opacity}))` }}
+                  />
+                ))}
               </div>
-              <span className="text-sm text-foreground font-medium">
-                2024 #1 Best Email Outreach Tool
-              </span>
+              <div className="text-left">
+                <p className="text-sm font-medium text-foreground">Trusted by elite teams</p>
+                <p className="text-xs text-muted-foreground">500+ companies scaled with AI</p>
+              </div>
             </motion.div>
           </div>
         </div>

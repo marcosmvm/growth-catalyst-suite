@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['DM Serif Display', 'serif'],
-        body: ['Inter', 'sans-serif'],
+        heading: ['Cormorant Garamond', 'serif'],
+        body: ['Outfit', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -88,6 +88,10 @@ export default {
           from: { transform: "translateX(20px)", opacity: "0" },
           to: { transform: "translateX(0)", opacity: "1" },
         },
+        "glow-pulse": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -95,6 +99,10 @@ export default {
         "fade-in": "fade-in 0.5s ease-out",
         "slide-up": "slide-up 0.6s ease-out",
         "slide-in-right": "slide-in-right 0.5s ease-out",
+        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },
