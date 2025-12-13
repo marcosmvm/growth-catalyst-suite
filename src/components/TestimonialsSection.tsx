@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 
 const testimonials = [
@@ -26,20 +27,30 @@ const TestimonialsSection = () => {
     <section className="py-24 bg-card/30">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
           <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-6">
             Trusted by growth teams everywhere
           </h2>
           <p className="text-lg text-muted-foreground">
             Join thousands of companies using OutreachAI to grow their business.
           </p>
-        </div>
+        </motion.div>
 
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div
+            <motion.div
               key={testimonial.author}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.15, ease: [0.25, 0.1, 0.25, 1] }}
               className="p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
             >
               {/* Stars */}
@@ -64,7 +75,7 @@ const TestimonialsSection = () => {
                   <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
