@@ -28,7 +28,7 @@ const StatsSection = () => {
               transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
               className="text-center group"
             >
-              <div className="text-5xl md:text-6xl lg:text-7xl font-heading gradient-text mb-3 group-hover:scale-105 transition-transform duration-500">
+              <div className="text-5xl md:text-6xl lg:text-7xl font-display font-bold gradient-text mb-3 group-hover:scale-105 transition-transform duration-500 tracking-tight">
                 {stat.value}
               </div>
               <p className="text-foreground font-medium text-sm md:text-base mb-1">
