@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
 const steps = [
@@ -32,20 +33,30 @@ const HowItWorksSection = () => {
     <section className="py-24">
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center max-w-3xl mx-auto mb-20"
+        >
           <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-6">
             How it works
           </h2>
           <p className="text-lg text-muted-foreground">
             Get started in minutes and see results within your first campaign.
           </p>
-        </div>
+        </motion.div>
 
         {/* Steps */}
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {steps.map((step, index) => (
-            <div
+            <motion.div
               key={step.number}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
               className="relative group"
             >
               <div className="p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 h-full">
@@ -76,7 +87,7 @@ const HowItWorksSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

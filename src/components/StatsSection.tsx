@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const stats = [
   { value: "10M+", label: "Emails Sent Monthly" },
   { value: "68%", label: "Average Open Rate" },
@@ -14,10 +16,13 @@ const StatsSection = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {stats.map((stat, index) => (
-            <div
+            <motion.div
               key={stat.label}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
               className="text-center group"
-              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="text-4xl md:text-5xl lg:text-6xl font-heading gradient-text mb-2 group-hover:scale-110 transition-transform">
                 {stat.value}
@@ -25,7 +30,7 @@ const StatsSection = () => {
               <p className="text-muted-foreground text-sm md:text-base">
                 {stat.label}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
