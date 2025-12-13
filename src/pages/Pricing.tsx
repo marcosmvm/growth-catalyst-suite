@@ -105,14 +105,20 @@ const Pricing = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main>
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 px-6">
-          <div className="container mx-auto text-center max-w-4xl">
+        {/* Hero Section with Premium Effects */}
+        <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          </div>
+
+          <div className="container mx-auto text-center max-w-4xl relative z-10">
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
             >
               Simple, Transparent Pricing
             </motion.span>
@@ -135,7 +141,7 @@ const Pricing = () => {
           </div>
         </section>
 
-        {/* Pricing Cards */}
+        {/* Pricing Cards with Premium Styling */}
         <section className="pb-20 px-6">
           <div className="container mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
@@ -146,18 +152,21 @@ const Pricing = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`rounded-2xl p-6 border flex flex-col ${
+                  className={`rounded-2xl p-6 border flex flex-col relative overflow-hidden ${
                     plan.popular
-                      ? "bg-card border-primary shadow-lg shadow-primary/10 relative"
-                      : "bg-card border-border"
+                      ? "glass border-primary/30 shadow-lg shadow-primary/10"
+                      : "glass border-border/50 hover:border-primary/20 transition-colors"
                   }`}
                 >
                   {plan.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium whitespace-nowrap">
-                      Most popular
-                    </span>
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
+                      <span className="absolute -top-px left-1/2 -translate-x-1/2 px-4 py-1 rounded-b-lg gradient-bg text-primary-foreground text-xs font-medium whitespace-nowrap">
+                        Most popular
+                      </span>
+                    </>
                   )}
-                  <div className="mb-6">
+                  <div className="mb-6 relative z-10">
                     <h3 className="text-lg font-heading text-foreground mb-2">{plan.name}</h3>
                     <p className="text-sm text-muted-foreground mb-4 min-h-[40px]">{plan.description}</p>
                     <div className="flex items-baseline gap-1">
@@ -166,20 +175,20 @@ const Pricing = () => {
                     </div>
                   </div>
 
-                  <Link to="/contact" className="w-full mb-6">
+                  <Link to="/contact" className="w-full mb-6 relative z-10">
                     <Button
                       variant={plan.popular ? "hero" : "outline"}
-                      className="w-full"
+                      className={`w-full ${!plan.popular && "border-primary/30 hover:bg-primary/10"}`}
                     >
                       {plan.cta}
                     </Button>
                   </Link>
 
                   {plan.prevPlanFeatures && (
-                    <p className="text-sm text-foreground font-medium mb-4">{plan.prevPlanFeatures}</p>
+                    <p className="text-sm text-foreground font-medium mb-4 relative z-10">{plan.prevPlanFeatures}</p>
                   )}
 
-                  <ul className="space-y-3 flex-1">
+                  <ul className="space-y-3 flex-1 relative z-10">
                     {plan.features.map((feature, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm">
                         <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
@@ -193,9 +202,10 @@ const Pricing = () => {
           </div>
         </section>
 
-        {/* Value Props */}
-        <section className="py-20 px-6 bg-card">
-          <div className="container mx-auto">
+        {/* Value Props with Premium Styling */}
+        <section className="py-20 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+          <div className="container mx-auto relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -203,15 +213,15 @@ const Pricing = () => {
               transition={{ duration: 0.6 }}
               className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center"
             >
-              <div>
+              <div className="glass rounded-2xl p-6 border border-border/50">
                 <div className="text-4xl font-heading text-primary mb-2">No</div>
                 <div className="text-muted-foreground">Long-term contracts</div>
               </div>
-              <div>
+              <div className="glass rounded-2xl p-6 border border-border/50">
                 <div className="text-4xl font-heading text-primary mb-2">100%</div>
                 <div className="text-muted-foreground">Transparent reporting</div>
               </div>
-              <div>
+              <div className="glass rounded-2xl p-6 border border-border/50">
                 <div className="text-4xl font-heading text-primary mb-2">60-90</div>
                 <div className="text-muted-foreground">Day pilot to prove ROI</div>
               </div>
@@ -219,7 +229,7 @@ const Pricing = () => {
           </div>
         </section>
 
-        {/* FAQ Section */}
+        {/* FAQ Section with Premium Styling */}
         <section className="py-20 px-6">
           <div className="container mx-auto max-w-3xl">
             <motion.div 
@@ -245,10 +255,12 @@ const Pricing = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="bg-card rounded-xl p-6 border border-border"
+                  className="glass rounded-xl p-6 border border-border/50 hover:border-primary/20 transition-colors"
                 >
                   <div className="flex items-start gap-4">
-                    <HelpCircle className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center flex-shrink-0">
+                      <HelpCircle className="w-4 h-4 text-primary-foreground" />
+                    </div>
                     <div>
                       <h3 className="font-heading text-foreground mb-2">{faq.question}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
@@ -260,14 +272,20 @@ const Pricing = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 px-6 bg-card">
+        {/* CTA Section with Premium Styling */}
+        <section className="py-20 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-1/4 w-48 h-48 bg-accent/10 rounded-full blur-3xl" />
+          </div>
+
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="container mx-auto text-center max-w-3xl"
+            className="container mx-auto text-center max-w-3xl relative z-10"
           >
             <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
               Ready to See It in Action?
@@ -280,7 +298,7 @@ const Pricing = () => {
                 Schedule Strategy Call <ArrowRight className="w-4 h-4" />
               </Button>
               <Link to="/contact">
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/10">
                   Contact Us
                 </Button>
               </Link>

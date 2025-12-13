@@ -11,10 +11,12 @@ import {
   Calendar, 
   Zap,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
+  Loader2
 } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const services = [
   {
@@ -87,16 +89,39 @@ const services = [
 
 const Services = () => {
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+    if (!email) return;
+
+    setIsSubmitting(true);
+    try {
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert({
+          name: "Quick Form Submission",
+          email: email.trim(),
+          message: "User requested to get started via Services page form"
+        });
+
+      if (error) throw error;
+
       toast({
         title: "Request received!",
         description: "We'll be in touch within 24 hours to discuss your needs.",
       });
       setEmail("");
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or email us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -104,14 +129,20 @@ const Services = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main>
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 px-6">
-          <div className="container mx-auto text-center max-w-4xl">
+        {/* Hero Section with Premium Effects */}
+        <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          </div>
+
+          <div className="container mx-auto text-center max-w-4xl relative z-10">
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
             >
               Our Services
             </motion.span>
@@ -140,16 +171,18 @@ const Services = () => {
               <Button variant="hero" size="lg" className="gap-2">
                 Schedule a Strategy Call <ArrowRight className="w-4 h-4" />
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/10">
                 View Pricing
               </Button>
             </motion.div>
           </div>
         </section>
 
-        {/* Services Grid */}
-        <section className="py-20 px-6 bg-card">
-          <div className="container mx-auto">
+        {/* Services Grid with Premium Styling */}
+        <section className="py-20 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+          
+          <div className="container mx-auto relative z-10">
             <motion.div 
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -173,12 +206,12 @@ const Services = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-background rounded-2xl p-8 border border-border hover:border-primary/50 transition-all duration-300 group"
+                  className="glass rounded-2xl p-8 border border-border/50 hover:border-primary/30 transition-all duration-300 group"
                 >
                   <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <service.icon className="w-7 h-7 text-primary-foreground" />
                   </div>
-                  <h3 className="text-xl font-heading text-foreground mb-3">
+                  <h3 className="text-xl font-heading text-foreground mb-3 group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
@@ -198,7 +231,7 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Process Section */}
+        {/* Process Section with Premium Styling */}
         <section className="py-20 px-6">
           <div className="container mx-auto">
             <motion.div 
@@ -229,9 +262,9 @@ const Services = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="text-center"
+                  className="text-center group"
                 >
-                  <div className="text-5xl font-heading text-primary/20 mb-4">{item.step}</div>
+                  <div className="text-5xl font-heading bg-gradient-to-br from-primary to-primary/30 bg-clip-text text-transparent mb-4 group-hover:from-primary group-hover:to-primary transition-all">{item.step}</div>
                   <h3 className="text-lg font-heading text-foreground mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.desc}</p>
                 </motion.div>
@@ -240,14 +273,20 @@ const Services = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 px-6 bg-card">
+        {/* CTA Section with Premium Styling */}
+        <section className="py-20 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-1/4 w-48 h-48 bg-accent/10 rounded-full blur-3xl" />
+          </div>
+
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="container mx-auto text-center max-w-3xl"
+            className="container mx-auto text-center max-w-3xl relative z-10"
           >
             <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
               Ready to Fill Your Pipeline?
@@ -261,11 +300,16 @@ const Services = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="flex-1"
+                className="flex-1 bg-background/50"
                 required
+                disabled={isSubmitting}
               />
-              <Button variant="hero" type="submit">
-                Get Started
+              <Button variant="hero" type="submit" disabled={isSubmitting}>
+                {isSubmitting ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
+                  "Get Started"
+                )}
               </Button>
             </form>
           </motion.div>

@@ -59,14 +59,20 @@ const CaseStudies = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main>
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 px-6">
-          <div className="container mx-auto text-center max-w-4xl">
+        {/* Hero Section with Premium Effects */}
+        <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          </div>
+
+          <div className="container mx-auto text-center max-w-4xl relative z-10">
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
             >
               Case Studies
             </motion.span>
@@ -89,7 +95,7 @@ const CaseStudies = () => {
           </div>
         </section>
 
-        {/* Metrics Bar */}
+        {/* Metrics Bar with Premium Styling */}
         <section className="pb-20 px-6">
           <div className="container mx-auto">
             <motion.div 
@@ -97,9 +103,10 @@ const CaseStudies = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
-              className="bg-card rounded-2xl p-8 border border-border"
+              className="glass rounded-2xl p-8 border border-primary/20 relative overflow-hidden"
             >
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5" />
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center relative z-10">
                 {metrics.map((metric, index) => (
                   <motion.div 
                     key={index}
@@ -117,7 +124,7 @@ const CaseStudies = () => {
           </div>
         </section>
 
-        {/* Case Studies */}
+        {/* Case Studies with Premium Styling */}
         <section className="pb-20 px-6">
           <div className="container mx-auto max-w-5xl">
             <div className="space-y-12">
@@ -128,14 +135,16 @@ const CaseStudies = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-card rounded-2xl p-8 md:p-10 border border-border hover:border-primary/50 transition-all"
+                  className="glass rounded-2xl p-8 md:p-10 border border-border/50 hover:border-primary/30 transition-all group"
                 >
                   <div className="flex flex-wrap items-center gap-4 mb-6">
                     <div className="flex items-center gap-2">
-                      <Building className="w-5 h-5 text-primary" />
+                      <div className="w-10 h-10 rounded-lg gradient-bg flex items-center justify-center">
+                        <Building className="w-5 h-5 text-primary-foreground" />
+                      </div>
                       <span className="font-heading text-foreground">{study.company}</span>
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">
+                    <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm border border-primary/20">
                       {study.industry}
                     </span>
                   </div>
@@ -146,28 +155,28 @@ const CaseStudies = () => {
 
                   {/* Results Grid */}
                   <div className="grid md:grid-cols-3 gap-4 mb-8">
-                    <div className="bg-background rounded-xl p-4 border border-border text-center">
+                    <div className="bg-background/50 rounded-xl p-4 border border-border text-center group-hover:border-primary/20 transition-colors">
                       <Users className="w-5 h-5 text-primary mx-auto mb-2" />
                       <div className="text-xl font-heading text-foreground">{study.results.meetings}</div>
                       <div className="text-xs text-muted-foreground">Qualified Meetings</div>
                     </div>
-                    <div className="bg-background rounded-xl p-4 border border-border text-center">
+                    <div className="bg-background/50 rounded-xl p-4 border border-border text-center group-hover:border-primary/20 transition-colors">
                       <TrendingUp className="w-5 h-5 text-primary mx-auto mb-2" />
                       <div className="text-xl font-heading text-foreground">{study.results.pipeline}</div>
                       <div className="text-xs text-muted-foreground">Pipeline Created</div>
                     </div>
-                    <div className="bg-background rounded-xl p-4 border border-border text-center">
+                    <div className="bg-background/50 rounded-xl p-4 border border-border text-center group-hover:border-primary/20 transition-colors">
                       <Calendar className="w-5 h-5 text-primary mx-auto mb-2" />
                       <div className="text-xl font-heading text-foreground">{study.results.timeframe}</div>
                       <div className="text-xs text-muted-foreground">Timeframe</div>
                     </div>
                   </div>
 
-                  {/* Quote */}
-                  <blockquote className="border-l-2 border-primary pl-6">
+                  {/* Quote with Premium Styling */}
+                  <blockquote className="relative pl-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-primary before:to-primary/30 before:rounded-full">
                     <p className="text-foreground italic mb-3">"{study.quote}"</p>
                     <footer className="text-sm text-muted-foreground">
-                      — {study.author}, {study.role}
+                      — {study.author}, <span className="text-primary">{study.role}</span>
                     </footer>
                   </blockquote>
                 </motion.div>
@@ -176,14 +185,20 @@ const CaseStudies = () => {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 px-6 bg-card">
+        {/* CTA with Premium Styling */}
+        <section className="py-20 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-1/4 w-48 h-48 bg-accent/10 rounded-full blur-3xl" />
+          </div>
+
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="container mx-auto text-center max-w-3xl"
+            className="container mx-auto text-center max-w-3xl relative z-10"
           >
             <h2 className="text-3xl font-heading text-foreground mb-4">
               Ready to Be Our Next Success Story?
@@ -196,7 +211,7 @@ const CaseStudies = () => {
                 Schedule a Call <ArrowRight className="w-4 h-4" />
               </Button>
               <Link to="/pricing">
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/10">
                   View Pricing
                 </Button>
               </Link>

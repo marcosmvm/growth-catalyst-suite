@@ -70,14 +70,20 @@ const Blog = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main>
-        {/* Hero Section */}
-        <section className="pt-32 pb-12 px-6">
-          <div className="container mx-auto text-center max-w-4xl">
+        {/* Hero Section with Premium Effects */}
+        <section className="pt-32 pb-12 px-6 relative overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          </div>
+
+          <div className="container mx-auto text-center max-w-4xl relative z-10">
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
             >
               Blog
             </motion.span>
@@ -109,29 +115,32 @@ const Blog = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6 }}
-                className="bg-card rounded-2xl p-8 md:p-12 border border-border hover:border-primary/50 transition-all cursor-pointer"
+                className="glass rounded-2xl p-8 md:p-12 border border-primary/20 hover:border-primary/40 transition-all cursor-pointer group relative overflow-hidden"
               >
-                <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-                  {featuredPost.category}
-                </span>
-                <h2 className="text-2xl md:text-3xl font-heading text-foreground mb-4">
-                  {featuredPost.title}
-                </h2>
-                <p className="text-muted-foreground mb-6 max-w-2xl">
-                  {featuredPost.excerpt}
-                </p>
-                <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-2">
-                    <User className="w-4 h-4" />
-                    {featuredPost.author}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    {featuredPost.date}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4" />
-                    {featuredPost.readTime}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative z-10">
+                  <span className="inline-block px-3 py-1 rounded-full gradient-bg text-primary-foreground text-sm font-medium mb-4">
+                    {featuredPost.category}
+                  </span>
+                  <h2 className="text-2xl md:text-3xl font-heading text-foreground mb-4 group-hover:text-primary transition-colors">
+                    {featuredPost.title}
+                  </h2>
+                  <p className="text-muted-foreground mb-6 max-w-2xl">
+                    {featuredPost.excerpt}
+                  </p>
+                  <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-2">
+                      <User className="w-4 h-4 text-primary" />
+                      {featuredPost.author}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Calendar className="w-4 h-4 text-primary" />
+                      {featuredPost.date}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-primary" />
+                      {featuredPost.readTime}
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -150,7 +159,7 @@ const Blog = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-all cursor-pointer group"
+                  className="glass rounded-xl p-6 border border-border/50 hover:border-primary/30 transition-all cursor-pointer group"
                 >
                   <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-4">
                     {post.category}
@@ -163,7 +172,7 @@ const Blog = () => {
                   </p>
                   <div className="flex items-center gap-3 text-xs text-muted-foreground">
                     <span>{post.date}</span>
-                    <span>•</span>
+                    <span className="text-primary">•</span>
                     <span>{post.readTime}</span>
                   </div>
                 </motion.article>
@@ -172,14 +181,20 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 px-6 bg-card">
+        {/* CTA with Premium Styling */}
+        <section className="py-20 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-1/4 w-48 h-48 bg-accent/10 rounded-full blur-3xl" />
+          </div>
+          
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="container mx-auto text-center max-w-3xl"
+            className="container mx-auto text-center max-w-3xl relative z-10"
           >
             <h2 className="text-3xl font-heading text-foreground mb-4">
               Ready to Apply These Strategies?
