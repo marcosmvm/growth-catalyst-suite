@@ -1,10 +1,23 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+const serviceLinks = [
+  { label: "Lead Generation", href: "/services/lead-generation" },
+  { label: "Cold Email Campaigns", href: "/services/cold-email-campaigns" },
+  { label: "Appointment Setting", href: "/services/appointment-setting" },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
@@ -20,9 +33,26 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">
-              Services
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none">
+                Services
+                <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="bg-card border-border z-50">
+                <DropdownMenuItem asChild>
+                  <Link to="/services" className="w-full cursor-pointer">
+                    All Services
+                  </Link>
+                </DropdownMenuItem>
+                {serviceLinks.map((link) => (
+                  <DropdownMenuItem key={link.href} asChild>
+                    <Link to={link.href} className="w-full cursor-pointer">
+                      {link.label}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Link to="/how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
               How It Works
             </Link>
@@ -56,9 +86,37 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-border/50 pt-4 animate-fade-in">
             <div className="flex flex-col gap-4">
-              <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
-                Services
-              </Link>
+              {/* Mobile Services Accordion */}
+              <div>
+                <button
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  className="flex items-center justify-between w-full text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Services
+                  <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {servicesOpen && (
+                  <div className="mt-2 ml-4 flex flex-col gap-2">
+                    <Link 
+                      to="/services" 
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors" 
+                      onClick={() => setIsOpen(false)}
+                    >
+                      All Services
+                    </Link>
+                    {serviceLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        to={link.href}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
               <Link to="/how-it-works" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
                 How It Works
               </Link>
