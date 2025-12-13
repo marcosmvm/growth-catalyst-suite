@@ -8,8 +8,8 @@ const pricingPlans = [
   {
     name: "Starter",
     price: "$1,500",
-    period: "/month",
-    description: "Perfect for small businesses testing outbound for the first time.",
+    period: "per month",
+    description: "Perfect for small businesses testing outbound for the first time",
     features: [
       "Up to 2,000 prospects/month",
       "1 ICP/target market",
@@ -18,44 +18,56 @@ const pricingPlans = [
       "CRM integration",
       "Dedicated account manager"
     ],
-    cta: "Start Pilot",
+    cta: "Start your pilot",
     popular: false
   },
   {
     name: "Growth",
     price: "$3,000",
-    period: "/month",
-    description: "For growing companies ready to scale their pipeline predictably.",
+    period: "per month",
+    description: "For growing companies ready to scale their pipeline predictably",
     features: [
       "Up to 5,000 prospects/month",
       "2-3 ICPs/target markets",
       "Advanced multi-touch sequences",
       "Bi-weekly strategy calls",
       "A/B testing & optimization",
-      "Lead scoring system",
-      "LinkedIn outreach add-on",
-      "Priority support"
+      "Lead scoring system"
     ],
-    cta: "Get Started",
+    prevPlanFeatures: "Everything in Starter, plus:",
+    cta: "Start your pilot",
     popular: true
   },
   {
     name: "Enterprise",
     price: "$5,000",
-    period: "/month",
-    description: "Full-scale outbound engine for companies with aggressive growth goals.",
+    period: "per month",
+    description: "Full-scale outbound engine for aggressive growth goals",
     features: [
       "Unlimited prospects",
       "Unlimited ICPs/markets",
       "Custom email + LinkedIn campaigns",
       "Weekly strategy calls",
       "Dedicated SDR support",
-      "Custom integrations",
-      "Revenue attribution tracking",
-      "Quarterly business reviews",
-      "SLA guarantees"
+      "Custom integrations"
     ],
-    cta: "Contact Sales",
+    prevPlanFeatures: "Everything in Growth, plus:",
+    cta: "Start your pilot",
+    popular: false
+  },
+  {
+    name: "Custom",
+    price: "Custom",
+    period: "",
+    description: "Designed for organizations with specialized outbound needs",
+    features: [
+      "White-glove onboarding and implementation",
+      "Plan tailored to your business",
+      "Dedicated service for seamless setup",
+      "Priority customer support"
+    ],
+    prevPlanFeatures: "Everything in Enterprise, plus:",
+    cta: "Schedule a demo",
     popular: false
   }
 ];
@@ -110,45 +122,51 @@ const Pricing = () => {
         {/* Pricing Cards */}
         <section className="pb-20 px-6">
           <div className="container mx-auto">
-            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
               {pricingPlans.map((plan, index) => (
                 <div
                   key={index}
-                  className={`rounded-2xl p-8 border ${
+                  className={`rounded-2xl p-6 border flex flex-col ${
                     plan.popular
                       ? "bg-card border-primary shadow-lg shadow-primary/10 relative"
                       : "bg-card border-border"
                   }`}
                 >
                   {plan.popular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-primary-foreground text-sm font-medium">
-                      Most Popular
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium whitespace-nowrap">
+                      Most popular
                     </span>
                   )}
-                  <div className="text-center mb-8">
-                    <h3 className="text-xl font-heading text-foreground mb-2">{plan.name}</h3>
-                    <div className="flex items-baseline justify-center gap-1">
-                      <span className="text-4xl font-heading text-foreground">{plan.price}</span>
-                      <span className="text-muted-foreground">{plan.period}</span>
+                  <div className="mb-6">
+                    <h3 className="text-lg font-heading text-foreground mb-2">{plan.name}</h3>
+                    <p className="text-sm text-muted-foreground mb-4 min-h-[40px]">{plan.description}</p>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-3xl font-heading text-foreground">{plan.price}</span>
+                      {plan.period && <span className="text-sm text-muted-foreground">{plan.period}</span>}
                     </div>
-                    <p className="text-sm text-muted-foreground mt-3">{plan.description}</p>
                   </div>
 
-                  <ul className="space-y-4 mb-8">
+                  <Link to="/contact" className="w-full mb-6">
+                    <Button
+                      variant={plan.popular ? "hero" : "outline"}
+                      className="w-full"
+                    >
+                      {plan.cta}
+                    </Button>
+                  </Link>
+
+                  {plan.prevPlanFeatures && (
+                    <p className="text-sm text-foreground font-medium mb-4">{plan.prevPlanFeatures}</p>
+                  )}
+
+                  <ul className="space-y-3 flex-1">
                     {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-3 text-sm">
-                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <li key={i} className="flex items-start gap-2 text-sm">
+                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                         <span className="text-muted-foreground">{feature}</span>
                       </li>
                     ))}
                   </ul>
-
-                  <Button
-                    variant={plan.popular ? "hero" : "outline"}
-                    className="w-full gap-2"
-                  >
-                    {plan.cta} <ArrowRight className="w-4 h-4" />
-                  </Button>
                 </div>
               ))}
             </div>

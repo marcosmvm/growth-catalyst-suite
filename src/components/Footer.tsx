@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const footerLinks = {
   Services: [
-    { label: "Lead Generation", href: "/services" },
-    { label: "Cold Email Campaigns", href: "/services" },
-    { label: "Appointment Setting", href: "/services" },
+    { label: "Lead Generation", href: "/services/lead-generation" },
+    { label: "Cold Email Campaigns", href: "/services/cold-email-campaigns" },
+    { label: "Appointment Setting", href: "/services/appointment-setting" },
     { label: "How It Works", href: "/how-it-works" },
   ],
   Company: [
