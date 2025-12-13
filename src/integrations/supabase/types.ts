@@ -65,6 +65,45 @@ export type Database = {
           },
         ]
       }
+      audit_requests: {
+        Row: {
+          created_at: string
+          current_efforts: string
+          email: string
+          email_example: string | null
+          id: string
+          notes: string | null
+          reply_rate: string
+          sending_cadence: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          current_efforts: string
+          email: string
+          email_example?: string | null
+          id?: string
+          notes?: string | null
+          reply_rate: string
+          sending_cadence: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          current_efforts?: string
+          email?: string
+          email_example?: string | null
+          id?: string
+          notes?: string | null
+          reply_rate?: string
+          sending_cadence?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       campaigns: {
         Row: {
           created_at: string

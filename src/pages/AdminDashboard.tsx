@@ -5,15 +5,17 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
-  LayoutDashboard, Users, Mail, Calendar, Settings, LogOut, ArrowLeft,
-  TrendingUp, Target, CheckCircle, Clock, Activity, Server, Database, Zap
+  LayoutDashboard, Users, Mail, Calendar, LogOut, ArrowLeft,
+  Target, Server, FileText
 } from "lucide-react";
+import AuditRequestsView from "@/components/admin/AuditRequestsView";
 
 const AdminDashboard = () => {
   const { signOut } = useAuth();
   const [stats, setStats] = useState({
-    totalUsers: 0, totalCampaigns: 0, totalLeads: 0, totalAppointments: 0
+    totalUsers: 0, totalCampaigns: 0, totalLeads: 0, totalAppointments: 0, totalAuditRequests: 0
   });
 
   useEffect(() => {
@@ -21,17 +23,19 @@ const AdminDashboard = () => {
   }, []);
 
   const fetchStats = async () => {
-    const [profiles, campaigns, leads, appointments] = await Promise.all([
+    const [profiles, campaigns, leads, appointments, auditRequests] = await Promise.all([
       supabase.from('profiles').select('id', { count: 'exact', head: true }),
       supabase.from('campaigns').select('id', { count: 'exact', head: true }),
       supabase.from('leads').select('id', { count: 'exact', head: true }),
       supabase.from('appointments').select('id', { count: 'exact', head: true }),
+      supabase.from('audit_requests').select('id', { count: 'exact', head: true }),
     ]);
     setStats({
       totalUsers: profiles.count || 0,
       totalCampaigns: campaigns.count || 0,
       totalLeads: leads.count || 0,
       totalAppointments: appointments.count || 0,
+      totalAuditRequests: auditRequests.count || 0,
     });
   };
 
@@ -58,12 +62,13 @@ const AdminDashboard = () => {
           <Button variant="outline" onClick={signOut}><LogOut className="w-4 h-4 mr-2" />Sign Out</Button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           {[
             { title: "Total Users", value: stats.totalUsers, icon: Users, color: "text-primary" },
             { title: "Campaigns", value: stats.totalCampaigns, icon: Mail, color: "text-emerald-500" },
             { title: "Leads", value: stats.totalLeads, icon: Target, color: "text-blue-500" },
             { title: "Appointments", value: stats.totalAppointments, icon: Calendar, color: "text-amber-500" },
+            { title: "Audit Requests", value: stats.totalAuditRequests, icon: FileText, color: "text-purple-500" },
           ].map((stat, i) => (
             <motion.div key={stat.title} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }}>
               <Card><CardContent className="pt-6 flex items-center gap-4">
@@ -74,25 +79,42 @@ const AdminDashboard = () => {
           ))}
         </div>
 
-        <Card>
-          <CardHeader><CardTitle className="flex items-center gap-2"><Server className="w-5 h-5 text-primary" />Engine Status</CardTitle></CardHeader>
-          <CardContent>
-            <div className="grid gap-3">
-              {engines.map((engine) => (
-                <div key={engine.name} className="flex items-center justify-between p-4 bg-secondary/50 rounded-lg">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="font-medium">{engine.name}</span>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <span className="text-sm text-muted-foreground">Uptime: {engine.uptime}</span>
-                    <span className="px-2 py-1 rounded-full text-xs bg-emerald-500/10 text-emerald-500 capitalize">{engine.status}</span>
-                  </div>
+        <Tabs defaultValue="overview" className="space-y-4">
+          <TabsList>
+            <TabsTrigger value="overview" className="flex items-center gap-2">
+              <LayoutDashboard className="w-4 h-4" />Overview
+            </TabsTrigger>
+            <TabsTrigger value="audit-requests" className="flex items-center gap-2">
+              <FileText className="w-4 h-4" />Audit Requests
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="overview">
+            <Card>
+              <CardHeader><CardTitle className="flex items-center gap-2"><Server className="w-5 h-5 text-primary" />Engine Status</CardTitle></CardHeader>
+              <CardContent>
+                <div className="grid gap-3">
+                  {engines.map((engine) => (
+                    <div key={engine.name} className="flex items-center justify-between p-4 bg-secondary/50 rounded-lg">
+                      <div className="flex items-center gap-3">
+                        <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="font-medium">{engine.name}</span>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <span className="text-sm text-muted-foreground">Uptime: {engine.uptime}</span>
+                        <span className="px-2 py-1 rounded-full text-xs bg-emerald-500/10 text-emerald-500 capitalize">{engine.status}</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="audit-requests">
+            <AuditRequestsView />
+          </TabsContent>
+        </Tabs>
       </div>
     </div>
   );
