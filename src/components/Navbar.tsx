@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Sparkles } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,25 +25,25 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
+      <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/30">
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">O</span>
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center">
+                <Sparkles className="w-4 h-4 text-primary-foreground" />
               </div>
-              <span className="text-xl font-heading text-foreground">OutreachAI</span>
+              <span className="text-xl font-heading text-foreground tracking-tight">OutreachAI</span>
             </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors outline-none">
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors outline-none">
                   Services
                   <ChevronDown className="w-4 h-4" />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="bg-card border-border z-50">
+                <DropdownMenuContent align="start" className="glass-strong border-border/50 z-50">
                   <DropdownMenuItem asChild>
                     <Link to="/services" className="w-full cursor-pointer">
                       All Services
@@ -58,27 +58,27 @@ const Navbar = () => {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
-              <Link to="/how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link to="/how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors premium-underline">
                 How It Works
               </Link>
-              <Link to="/pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link to="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors premium-underline">
                 Pricing
               </Link>
-              <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors premium-underline">
                 About
               </Link>
-              <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors premium-underline">
                 Contact
               </Link>
             </div>
 
             {/* Desktop CTA */}
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-3">
               <Button variant="outline" size="sm" onClick={() => setCalendlyOpen(true)}>
-                Schedule a demo
+                Schedule Demo
               </Button>
               <Button variant="hero" size="sm" onClick={() => setGetStartedOpen(true)}>
-                Get Started
+                Request Access
               </Button>
             </div>
 
@@ -93,7 +93,7 @@ const Navbar = () => {
 
           {/* Mobile Navigation */}
           {isOpen && (
-            <div className="md:hidden mt-4 pb-4 border-t border-border/50 pt-4 animate-fade-in">
+            <div className="md:hidden mt-4 pb-4 border-t border-border/30 pt-4 animate-fade-in">
               <div className="flex flex-col gap-4">
                 {/* Mobile Services Accordion */}
                 <div>
@@ -140,10 +140,10 @@ const Navbar = () => {
                 </Link>
                 <div className="flex flex-col gap-2 pt-4">
                   <Button variant="outline" className="w-full" onClick={() => { setCalendlyOpen(true); setIsOpen(false); }}>
-                    Schedule a demo
+                    Schedule Demo
                   </Button>
                   <Button variant="hero" className="w-full" onClick={() => { setGetStartedOpen(true); setIsOpen(false); }}>
-                    Get Started
+                    Request Access
                   </Button>
                 </div>
               </div>
