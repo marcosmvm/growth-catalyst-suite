@@ -153,7 +153,7 @@ const HowItWorks = () => {
                       </p>
 
                       <div className="bg-background rounded-xl p-6 border border-border">
-                        <h4 className="font-semibold text-foreground mb-4">What happens:</h4>
+                        <h4 className="font-semibold text-foreground mb-4 font-sans">What happens:</h4>
                         <ul className="space-y-3 mb-6">
                           {phase.activities.map((activity, i) => <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
                               <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
