@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { motion } from "framer-motion";
 import { 
   Target, 
   Mail, 
@@ -106,42 +107,72 @@ const Services = () => {
         {/* Hero Section */}
         <section className="pt-32 pb-20 px-6">
           <div className="container mx-auto text-center max-w-4xl">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
+            >
               Our Services
-            </span>
-            <h1 className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight">
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
+            >
               Done-For-You B2B Lead Generation
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
+            >
               We function as your outsourced outbound engine—researching ideal buyers, building targeted lists, running campaigns, and handing your sales team warm, sales-ready meetings.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
               <Button variant="hero" size="lg" className="gap-2">
                 Schedule a Strategy Call <ArrowRight className="w-4 h-4" />
               </Button>
               <Button variant="outline" size="lg">
                 View Pricing
               </Button>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Services Grid */}
         <section className="py-20 px-6 bg-card">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
               <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
                 Full-Service Outbound Solution
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Everything you need to build a predictable pipeline without hiring extra staff or wasting money on ineffective outreach.
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, index) => (
-                <div
+                <motion.div
                   key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-background rounded-2xl p-8 border border-border hover:border-primary/50 transition-all duration-300 group"
                 >
                   <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -161,7 +192,7 @@ const Services = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -170,14 +201,20 @@ const Services = () => {
         {/* Process Section */}
         <section className="py-20 px-6">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
               <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
                 Our Proven Process
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 A systematic approach that delivers 10-20 high-quality opportunities per month for most B2B companies.
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid md:grid-cols-4 gap-8">
               {[
@@ -186,11 +223,18 @@ const Services = () => {
                 { step: "03", title: "Campaign Launch", desc: "Custom prospect lists, email sequences, and multi-touch campaigns" },
                 { step: "04", title: "Optimize & Scale", desc: "Daily monitoring, weekly reports, and continuous improvement" }
               ].map((item, index) => (
-                <div key={index} className="text-center">
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="text-center"
+                >
                   <div className="text-5xl font-heading text-primary/20 mb-4">{item.step}</div>
                   <h3 className="text-lg font-heading text-foreground mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.desc}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -198,7 +242,13 @@ const Services = () => {
 
         {/* CTA Section */}
         <section className="py-20 px-6 bg-card">
-          <div className="container mx-auto text-center max-w-3xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="container mx-auto text-center max-w-3xl"
+          >
             <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
               Ready to Fill Your Pipeline?
             </h2>
@@ -218,7 +268,7 @@ const Services = () => {
                 Get Started
               </Button>
             </form>
-          </div>
+          </motion.div>
         </section>
       </main>
       <Footer />
