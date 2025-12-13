@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import { 
   Search, 
   Settings, 
@@ -103,18 +104,39 @@ const HowItWorks = () => {
         {/* Hero Section */}
         <section className="pt-32 pb-20 px-6">
           <div className="container mx-auto text-center max-w-4xl">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
+            >
               Our Process
-            </span>
-            <h1 className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight">
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
+            >
               From Zero to Pipeline in 30 Days
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
+            >
               A proven, systematic approach that delivers predictable results. Here's exactly how we build your outbound engine.
-            </p>
-            <Button variant="hero" size="lg" className="gap-2">
-              Start Your Pilot <ArrowRight className="w-4 h-4" />
-            </Button>
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Button variant="hero" size="lg" className="gap-2">
+                Start Your Pilot <ArrowRight className="w-4 h-4" />
+              </Button>
+            </motion.div>
           </div>
         </section>
 
@@ -123,7 +145,14 @@ const HowItWorks = () => {
           <div className="container mx-auto max-w-5xl">
             <div className="space-y-12">
               {phases.map((phase, index) => (
-                <div key={index} className="relative">
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative"
+                >
                   {/* Connector Line */}
                   {index < phases.length - 1 && (
                     <div className="hidden md:block absolute left-[27px] top-[72px] w-0.5 h-[calc(100%+48px)] bg-border" />
@@ -169,7 +198,7 @@ const HowItWorks = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -178,24 +207,37 @@ const HowItWorks = () => {
         {/* What to Expect */}
         <section className="py-20 px-6">
           <div className="container mx-auto max-w-4xl">
-            <div className="text-center mb-12">
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
               <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
                 What to Expect
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Results you can count on once your campaigns are running.
               </p>
-            </div>
+            </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {expectations.map((item, index) => (
-                <div key={index} className="text-center">
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="text-center"
+                >
                   <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center mx-auto mb-4">
                     <item.icon className="w-7 h-7 text-primary-foreground" />
                   </div>
                   <h3 className="font-heading text-foreground mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.description}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -204,16 +246,28 @@ const HowItWorks = () => {
         {/* Reporting Preview */}
         <section className="py-20 px-6 bg-card">
           <div className="container mx-auto max-w-4xl">
-            <div className="text-center mb-12">
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
               <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
                 Transparent Reporting
               </h2>
               <p className="text-muted-foreground">
                 Weekly and monthly reports show exactly how your campaigns perform.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-background rounded-2xl p-8 border border-border">
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-background rounded-2xl p-8 border border-border"
+            >
               <div className="grid md:grid-cols-4 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-heading text-primary mb-1">12,450</div>
@@ -235,13 +289,19 @@ const HowItWorks = () => {
               <p className="text-center text-sm text-muted-foreground mt-6">
                 *Sample monthly metrics from an active Growth plan client
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* CTA */}
         <section className="py-20 px-6">
-          <div className="container mx-auto text-center max-w-3xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="container mx-auto text-center max-w-3xl"
+          >
             <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
               Ready to Start Your Pilot?
             </h2>
@@ -258,7 +318,7 @@ const HowItWorks = () => {
                 </Button>
               </Link>
             </div>
-          </div>
+          </motion.div>
         </section>
       </main>
       <Footer />

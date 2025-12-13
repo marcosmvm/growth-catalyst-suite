@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import { ArrowRight, Target, Handshake, TrendingUp, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -35,15 +36,30 @@ const About = () => {
         {/* Hero Section */}
         <section className="pt-32 pb-20 px-6">
           <div className="container mx-auto max-w-4xl">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
+            >
               About OutreachAI
-            </span>
-            <h1 className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight">
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
+            >
               Your Outsourced Outbound Engine
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl">
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-muted-foreground max-w-3xl"
+            >
               We help small and mid-sized B2B companies consistently fill their sales pipeline with qualified prospects—without hiring extra staff or wasting money on ineffective outreach.
-            </p>
+            </motion.p>
           </div>
         </section>
 
@@ -51,7 +67,12 @@ const About = () => {
         <section className="py-20 px-6 bg-card">
           <div className="container mx-auto max-w-4xl">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+              >
                 <h2 className="text-3xl font-heading text-foreground mb-6">
                   Why We Exist
                 </h2>
@@ -66,8 +87,14 @@ const About = () => {
                     We built OutreachAI to be different: a done-for-you outbound service that combines AI-powered targeting with human expertise to deliver what actually matters—qualified meetings with decision-makers who want to talk to you.
                   </p>
                 </div>
-              </div>
-              <div className="bg-background rounded-2xl p-8 border border-border">
+              </motion.div>
+              <motion.div 
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+                className="bg-background rounded-2xl p-8 border border-border"
+              >
                 <div className="space-y-6">
                   <div>
                     <div className="text-4xl font-heading text-primary mb-1">500+</div>
@@ -82,7 +109,7 @@ const About = () => {
                     <div className="text-muted-foreground">Pipeline generated</div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -90,12 +117,19 @@ const About = () => {
         {/* What We Do */}
         <section className="py-20 px-6">
           <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl font-heading text-foreground mb-6 text-center">
-              What We Actually Do
-            </h2>
-            <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
-              We function as your outsourced outbound engine, handling every step of the process.
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl font-heading text-foreground mb-6 text-center">
+                What We Actually Do
+              </h2>
+              <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
+                We function as your outsourced outbound engine, handling every step of the process.
+              </p>
+            </motion.div>
             
             <div className="grid md:grid-cols-2 gap-6">
               {[
@@ -108,12 +142,19 @@ const About = () => {
                 "Book meetings directly on your calendar",
                 "Provide transparent performance reporting"
               ].map((item, index) => (
-                <div key={index} className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border">
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border"
+                >
                   <div className="w-8 h-8 rounded-full gradient-bg flex items-center justify-center flex-shrink-0">
                     <span className="text-primary-foreground font-semibold text-sm">{index + 1}</span>
                   </div>
                   <span className="text-muted-foreground">{item}</span>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -122,12 +163,25 @@ const About = () => {
         {/* Values */}
         <section className="py-20 px-6 bg-card">
           <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl font-heading text-foreground mb-12 text-center">
+            <motion.h2 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl font-heading text-foreground mb-12 text-center"
+            >
               Our Values
-            </h2>
+            </motion.h2>
             <div className="grid md:grid-cols-2 gap-8">
               {values.map((value, index) => (
-                <div key={index} className="flex gap-4">
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="flex gap-4"
+                >
                   <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center flex-shrink-0">
                     <value.icon className="w-6 h-6 text-primary-foreground" />
                   </div>
@@ -135,7 +189,7 @@ const About = () => {
                     <h3 className="font-heading text-foreground mb-2">{value.title}</h3>
                     <p className="text-sm text-muted-foreground">{value.description}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -143,7 +197,13 @@ const About = () => {
 
         {/* CTA */}
         <section className="py-20 px-6">
-          <div className="container mx-auto text-center max-w-3xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="container mx-auto text-center max-w-3xl"
+          >
             <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
               Let's Build Your Pipeline Together
             </h2>
@@ -160,7 +220,7 @@ const About = () => {
                 </Button>
               </Link>
             </div>
-          </div>
+          </motion.div>
         </section>
       </main>
       <Footer />

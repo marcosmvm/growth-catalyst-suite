@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { motion } from "framer-motion";
 import { 
   Search, 
   BookOpen, 
@@ -95,10 +96,20 @@ const HelpCenter = () => {
         {/* Hero Section */}
         <section className="pt-32 pb-12 px-6 bg-card">
           <div className="container mx-auto text-center max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-heading text-foreground mb-6">
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-5xl font-heading text-foreground mb-6"
+            >
               How can we help?
-            </h1>
-            <div className="relative max-w-xl mx-auto">
+            </motion.h1>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="relative max-w-xl mx-auto"
+            >
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
               <Input
                 type="text"
@@ -107,7 +118,7 @@ const HelpCenter = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-12 h-14"
               />
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -116,8 +127,12 @@ const HelpCenter = () => {
           <div className="container mx-auto max-w-5xl">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {categories.map((category, index) => (
-                <div
+                <motion.div
                   key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-all cursor-pointer group"
                 >
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
@@ -132,7 +147,7 @@ const HelpCenter = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -140,7 +155,13 @@ const HelpCenter = () => {
 
         {/* Contact Support */}
         <section className="py-16 px-6 bg-card">
-          <div className="container mx-auto max-w-3xl text-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="container mx-auto max-w-3xl text-center"
+          >
             <MessageCircle className="w-12 h-12 text-primary mx-auto mb-4" />
             <h2 className="text-2xl font-heading text-foreground mb-4">
               Can't find what you're looking for?
@@ -153,7 +174,7 @@ const HelpCenter = () => {
                 Contact Support <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </section>
       </main>
       <Footer />

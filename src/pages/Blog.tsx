@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Clock, User } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -72,15 +73,30 @@ const Blog = () => {
         {/* Hero Section */}
         <section className="pt-32 pb-12 px-6">
           <div className="container mx-auto text-center max-w-4xl">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
+            >
               Blog
-            </span>
-            <h1 className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight">
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
+            >
               Cold Email Insights & Best Practices
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-muted-foreground max-w-2xl mx-auto"
+            >
               Actionable strategies to improve your outbound campaigns and generate more qualified leads.
-            </p>
+            </motion.p>
           </div>
         </section>
 
@@ -88,7 +104,13 @@ const Blog = () => {
         {featuredPost && (
           <section className="pb-12 px-6">
             <div className="container mx-auto max-w-5xl">
-              <div className="bg-card rounded-2xl p-8 md:p-12 border border-border hover:border-primary/50 transition-all cursor-pointer">
+              <motion.div 
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6 }}
+                className="bg-card rounded-2xl p-8 md:p-12 border border-border hover:border-primary/50 transition-all cursor-pointer"
+              >
                 <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
                   {featuredPost.category}
                 </span>
@@ -112,7 +134,7 @@ const Blog = () => {
                     {featuredPost.readTime}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </section>
         )}
@@ -122,8 +144,12 @@ const Blog = () => {
           <div className="container mx-auto max-w-5xl">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {regularPosts.map((post, index) => (
-                <article
+                <motion.article
                   key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-card rounded-xl p-6 border border-border hover:border-primary/50 transition-all cursor-pointer group"
                 >
                   <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-4">
@@ -140,7 +166,7 @@ const Blog = () => {
                     <span>•</span>
                     <span>{post.readTime}</span>
                   </div>
-                </article>
+                </motion.article>
               ))}
             </div>
           </div>
@@ -148,7 +174,13 @@ const Blog = () => {
 
         {/* CTA */}
         <section className="py-20 px-6 bg-card">
-          <div className="container mx-auto text-center max-w-3xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="container mx-auto text-center max-w-3xl"
+          >
             <h2 className="text-3xl font-heading text-foreground mb-4">
               Ready to Apply These Strategies?
             </h2>
@@ -160,7 +192,7 @@ const Blog = () => {
                 Get Started <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
-          </div>
+          </motion.div>
         </section>
       </main>
       <Footer />
