@@ -25,6 +25,11 @@ import Auth from "./pages/Auth";
 import Portal from "./pages/Portal";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
+import ColdEmailForSaaS from "./pages/ColdEmailForSaaS";
+import ColdEmailForAgencies from "./pages/ColdEmailForAgencies";
+import ColdEmailForConsulting from "./pages/ColdEmailForConsulting";
+import ColdEmailForTech from "./pages/ColdEmailForTech";
+import ColdEmailForStaffing from "./pages/ColdEmailForStaffing";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +47,11 @@ const App = () => (
             <Route path="/services/lead-generation" element={<LeadGeneration />} />
             <Route path="/services/cold-email-campaigns" element={<ColdEmailCampaigns />} />
             <Route path="/services/appointment-setting" element={<AppointmentSetting />} />
+            <Route path="/cold-email-for-saas" element={<ColdEmailForSaaS />} />
+            <Route path="/cold-email-for-agencies" element={<ColdEmailForAgencies />} />
+            <Route path="/cold-email-for-consulting" element={<ColdEmailForConsulting />} />
+            <Route path="/cold-email-for-tech" element={<ColdEmailForTech />} />
+            <Route path="/cold-email-for-staffing" element={<ColdEmailForStaffing />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
