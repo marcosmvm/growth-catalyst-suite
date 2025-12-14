@@ -17,11 +17,21 @@ const serviceLinks = [
   { label: "Appointment Setting", href: "/services/appointment-setting" },
 ];
 
+const industryLinks = [
+  { label: "SaaS Companies", href: "/cold-email-for-saas" },
+  { label: "Agencies", href: "/cold-email-for-agencies" },
+  { label: "Consulting", href: "/cold-email-for-consulting" },
+  { label: "Tech Companies", href: "/cold-email-for-tech" },
+  { label: "Staffing & Recruiting", href: "/cold-email-for-staffing" },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [calendlyOpen, setCalendlyOpen] = useState(false);
   const [getStartedOpen, setGetStartedOpen] = useState(false);
+
+  const [industriesOpen, setIndustriesOpen] = useState(false);
 
   return (
     <>
@@ -50,6 +60,21 @@ const Navbar = () => {
                     </Link>
                   </DropdownMenuItem>
                   {serviceLinks.map((link) => (
+                    <DropdownMenuItem key={link.href} asChild>
+                      <Link to={link.href} className="w-full cursor-pointer">
+                        {link.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors outline-none">
+                  Industries
+                  <ChevronDown className="w-4 h-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="glass-strong border-border/50 z-50">
+                  {industryLinks.map((link) => (
                     <DropdownMenuItem key={link.href} asChild>
                       <Link to={link.href} className="w-full cursor-pointer">
                         {link.label}
@@ -114,6 +139,30 @@ const Navbar = () => {
                         All Services
                       </Link>
                       {serviceLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          to={link.href}
+                          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                {/* Mobile Industries Accordion */}
+                <div>
+                  <button
+                    onClick={() => setIndustriesOpen(!industriesOpen)}
+                    className="flex items-center justify-between w-full text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Industries
+                    <ChevronDown className={`w-4 h-4 transition-transform ${industriesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  {industriesOpen && (
+                    <div className="mt-2 ml-4 flex flex-col gap-2">
+                      {industryLinks.map((link) => (
                         <Link
                           key={link.href}
                           to={link.href}
