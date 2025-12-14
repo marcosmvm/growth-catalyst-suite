@@ -68,7 +68,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2024 OutreachAI. All rights reserved.
+            © {new Date().getFullYear()} OutreachAI. All rights reserved.
           </p>
           <div className="flex gap-8">
             <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors premium-underline">

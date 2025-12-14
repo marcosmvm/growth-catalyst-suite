@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Search, Settings, Send, TrendingUp, ArrowRight, CheckCircle, BarChart3, Calendar, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+import CTASection from "@/components/CTASection";
 const phases = [{
   phase: "Phase 1",
   title: "Strategy & Audit",
@@ -51,57 +52,48 @@ const expectations = [{
   description: "Weekly reports showing emails sent, engagement rates, SQLs, and pipeline value."
 }];
 const HowItWorks = () => {
-  return <div className="min-h-screen bg-background">
+  return (
+    <div className="min-h-screen bg-background">
       <Navbar />
       <main>
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 px-6">
-          <div className="container mx-auto text-center max-w-4xl">
-            <motion.span initial={{
-            opacity: 0,
-            y: 20
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.5
-          }} className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
+        {/* Hero Section with Premium Effects */}
+        <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+          {/* Background Effects */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          </div>
+
+          <div className="container mx-auto text-center max-w-4xl relative z-10">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
+            >
               Our Process
             </motion.span>
-            <motion.h1 initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.1
-          }} className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight">
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
+            >
               From Zero to Pipeline in 30 Days
             </motion.h1>
-            <motion.p initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.2
-          }} className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
+            >
               A proven, systematic approach that delivers predictable results. Here's exactly how we build your outbound engine.
             </motion.p>
-            <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.3
-          }}>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               <Button variant="hero" size="lg" className="gap-2">
                 Start Your Pilot <ArrowRight className="w-4 h-4" />
               </Button>
@@ -109,30 +101,30 @@ const HowItWorks = () => {
           </div>
         </section>
 
-        {/* Timeline */}
-        <section className="py-20 px-6 bg-card">
-          <div className="container mx-auto max-w-5xl">
+        {/* Timeline with Premium Styling */}
+        <section className="py-20 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+          
+          <div className="container mx-auto max-w-5xl relative z-10">
             <div className="space-y-12">
-              {phases.map((phase, index) => <motion.div key={index} initial={{
-              opacity: 0,
-              y: 40
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true,
-              margin: "-50px"
-            }} transition={{
-              duration: 0.5,
-              delay: index * 0.1
-            }} className="relative">
+              {phases.map((phase, index) => (
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative"
+                >
                   {/* Connector Line */}
-                  {index < phases.length - 1 && <div className="hidden md:block absolute left-[27px] top-[72px] w-0.5 h-[calc(100%+48px)] bg-border" />}
+                  {index < phases.length - 1 && (
+                    <div className="hidden md:block absolute left-[27px] top-[72px] w-0.5 h-[calc(100%+48px)] bg-gradient-to-b from-primary/50 to-border" />
+                  )}
                   
                   <div className="flex gap-6 md:gap-12">
                     {/* Icon */}
                     <div className="flex-shrink-0">
-                      <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center relative z-10">
+                      <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center relative z-10 shadow-lg shadow-primary/20">
                         <phase.icon className="w-7 h-7 text-primary-foreground" />
                       </div>
                     </div>
@@ -140,7 +132,7 @@ const HowItWorks = () => {
                     {/* Content */}
                     <div className="flex-1 pb-8">
                       <div className="flex flex-wrap items-center gap-3 mb-3">
-                        <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
+                        <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
                           {phase.phase}
                         </span>
                         <span className="text-sm text-muted-foreground">{phase.duration}</span>
@@ -152,22 +144,25 @@ const HowItWorks = () => {
                         {phase.description}
                       </p>
 
-                      <div className="bg-background rounded-xl p-6 border border-border">
+                      <div className="glass rounded-xl p-6 border border-border/50">
                         <h4 className="font-semibold text-foreground mb-4 font-sans">What happens:</h4>
                         <ul className="space-y-3 mb-6">
-                          {phase.activities.map((activity, i) => <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                          {phase.activities.map((activity, i) => (
+                            <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
                               <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                               {activity}
-                            </li>)}
+                            </li>
+                          ))}
                         </ul>
-                        <div className="pt-4 border-t border-border">
+                        <div className="pt-4 border-t border-border/50">
                           <span className="text-sm font-medium text-foreground">Deliverables: </span>
                           <span className="text-sm text-muted-foreground">{phase.deliverables}</span>
                         </div>
                       </div>
                     </div>
                   </div>
-                </motion.div>)}
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -175,18 +170,13 @@ const HowItWorks = () => {
         {/* What to Expect */}
         <section className="py-20 px-6">
           <div className="container mx-auto max-w-4xl">
-            <motion.div initial={{
-            opacity: 0,
-            y: 40
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true,
-            margin: "-100px"
-          }} transition={{
-            duration: 0.6
-          }} className="text-center mb-12">
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
               <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
                 What to Expect
               </h2>
@@ -196,44 +186,38 @@ const HowItWorks = () => {
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {expectations.map((item, index) => <motion.div key={index} initial={{
-              opacity: 0,
-              y: 30
-            }} whileInView={{
-              opacity: 1,
-              y: 0
-            }} viewport={{
-              once: true,
-              margin: "-50px"
-            }} transition={{
-              duration: 0.5,
-              delay: index * 0.1
-            }} className="text-center">
-                  <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center mx-auto mb-4">
+              {expectations.map((item, index) => (
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="text-center group"
+                >
+                  <div className="w-14 h-14 rounded-xl gradient-bg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
                     <item.icon className="w-7 h-7 text-primary-foreground" />
                   </div>
-                  <h3 className="text-foreground mb-2 font-sans">{item.title}</h3>
+                  <h3 className="text-foreground mb-2 font-heading">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.description}</p>
-                </motion.div>)}
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Reporting Preview */}
-        <section className="py-20 px-6 bg-card">
-          <div className="container mx-auto max-w-4xl">
-            <motion.div initial={{
-            opacity: 0,
-            y: 40
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true,
-            margin: "-100px"
-          }} transition={{
-            duration: 0.6
-          }} className="text-center mb-12">
+        {/* Reporting Preview with Premium Styling */}
+        <section className="py-20 px-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+          
+          <div className="container mx-auto max-w-4xl relative z-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
               <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
                 Transparent Reporting
               </h2>
@@ -242,78 +226,45 @@ const HowItWorks = () => {
               </p>
             </motion.div>
 
-            <motion.div initial={{
-            opacity: 0,
-            y: 40
-          }} whileInView={{
-            opacity: 1,
-            y: 0
-          }} viewport={{
-            once: true,
-            margin: "-100px"
-          }} transition={{
-            duration: 0.6,
-            delay: 0.2
-          }} className="bg-background rounded-2xl p-8 border border-border">
-              <div className="grid md:grid-cols-4 gap-6 text-center">
-                <div>
-                  <div className="text-3xl font-heading text-primary mb-1">12,450</div>
-                  <div className="text-sm text-muted-foreground">Emails Sent</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-heading text-primary mb-1">68%</div>
-                  <div className="text-sm text-muted-foreground">Open Rate</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-heading text-primary mb-1">8.2%</div>
-                  <div className="text-sm text-muted-foreground">Reply Rate</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-heading text-primary mb-1">18</div>
-                  <div className="text-sm text-muted-foreground">Meetings Booked</div>
-                </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="glass rounded-2xl p-8 border border-primary/20 relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
+              <div className="grid md:grid-cols-4 gap-6 text-center relative z-10">
+                {[
+                  { value: "12,450", label: "Emails Sent" },
+                  { value: "68%", label: "Open Rate" },
+                  { value: "8.2%", label: "Reply Rate" },
+                  { value: "18", label: "Meetings Booked" }
+                ].map((stat, index) => (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                  >
+                    <div className="text-3xl font-heading text-primary mb-1">{stat.value}</div>
+                    <div className="text-sm text-muted-foreground">{stat.label}</div>
+                  </motion.div>
+                ))}
               </div>
-              <p className="text-center text-sm text-muted-foreground mt-6">
+              <p className="text-center text-sm text-muted-foreground mt-6 relative z-10">
                 *Sample monthly metrics from an active Growth plan client
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-20 px-6">
-          <motion.div initial={{
-          opacity: 0,
-          y: 40
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true,
-          margin: "-100px"
-        }} transition={{
-          duration: 0.6
-        }} className="container mx-auto text-center max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
-              Ready to Start Your Pilot?
-            </h2>
-            <p className="text-muted-foreground mb-8">
-              See results in 30 days with our performance-focused pilot program.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg" className="gap-2">
-                Schedule Strategy Call <ArrowRight className="w-4 h-4" />
-              </Button>
-              <Link to="/pricing">
-                <Button variant="outline" size="lg">
-                  View Pricing
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </section>
+        <CTASection />
       </main>
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default HowItWorks;
