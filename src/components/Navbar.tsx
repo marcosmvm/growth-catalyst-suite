@@ -103,7 +103,7 @@ const Navbar = () => {
                 Schedule Demo
               </Button>
               <Button variant="hero" size="sm" onClick={() => setGetStartedOpen(true)}>
-                Request Access
+                Book a Safety Walkthrough
               </Button>
             </div>
 
@@ -192,7 +192,7 @@ const Navbar = () => {
                     Schedule Demo
                   </Button>
                   <Button variant="hero" className="w-full" onClick={() => { setGetStartedOpen(true); setIsOpen(false); }}>
-                    Request Access
+                    Book a Safety Walkthrough
                   </Button>
                 </div>
               </div>

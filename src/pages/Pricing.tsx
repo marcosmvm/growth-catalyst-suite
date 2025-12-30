@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Check, Shield, Clock, Calendar, AlertTriangle, ArrowRight, HelpCircle, Users, Target, Zap, FileCheck, MessageSquare } from "lucide-react";
+import { Check, Shield, Clock, Calendar, AlertTriangle, ArrowRight, HelpCircle, Users, Target, Zap, FileCheck, MessageSquare, Download, FileText } from "lucide-react";
 import { useState } from "react";
 import CalendlyModal from "@/components/CalendlyModal";
 
@@ -363,6 +363,95 @@ const Pricing = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Engagement Terms Section */}
+      <section className="py-16 relative">
+        <div className="absolute inset-0 mesh-gradient opacity-20" />
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto premium-card rounded-2xl p-8 md:p-10"
+          >
+            <div className="flex flex-col md:flex-row md:items-start gap-6 mb-8">
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                <FileText className="w-7 h-7 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-heading mb-2">
+                  Engagement Terms
+                </h2>
+                <p className="text-muted-foreground">
+                  Review our full engagement terms before your walkthrough call. This document outlines everything we've discussed above in contract-ready language.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="space-y-4">
+                <h4 className="font-medium text-foreground">What's covered:</h4>
+                <ul className="space-y-2">
+                  {[
+                    "90-day pilot commitment terms",
+                    "Lead quality and volume requirements",
+                    "Safety and governance policies",
+                    "Approval and response SLAs",
+                    "Early termination conditions",
+                    "Data handling and compliance",
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div className="space-y-4">
+                <h4 className="font-medium text-foreground">Why review before the call:</h4>
+                <ul className="space-y-2">
+                  {[
+                    "Come prepared with questions",
+                    "Understand the commitment upfront",
+                    "No surprises in the proposal",
+                    "Faster decision-making",
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <ArrowRight className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-border">
+              <Button variant="hero" className="flex-1" onClick={() => setCalendlyOpen(true)}>
+                Book a Safety Walkthrough
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+              <Button 
+                variant="outline" 
+                className="flex-1"
+                onClick={() => {
+                  // Open engagement terms in new tab (placeholder - would link to actual PDF)
+                  window.open('/engagement-terms.pdf', '_blank');
+                }}
+              >
+                <Download className="w-4 h-4 mr-2" />
+                Download Engagement Terms
+              </Button>
+            </div>
+
+            <p className="text-xs text-muted-foreground text-center mt-4">
+              PDF document • Last updated December 2024
+            </p>
+          </motion.div>
         </div>
       </section>
 
