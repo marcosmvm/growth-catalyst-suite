@@ -177,8 +177,8 @@ const HeroSection = () => {
             ease: [0.25, 0.1, 0.25, 1]
           }} className="mt-16 flex items-center gap-4 glass rounded-full px-8 py-4">
               <div className="flex -space-x-3">
-                {[0.5, 0.7, 0.9].map((opacity, i) => <div key={i} className="w-10 h-10 rounded-full border-2 border-background" style={{
-                background: `linear-gradient(135deg, hsl(42 92% 56% / ${opacity}), hsl(172 66% 45% / ${opacity * 0.7}))`
+                {[0.4, 0.6, 0.8].map((opacity, i) => <div key={i} className="w-10 h-10 rounded-full border-2 border-background" style={{
+                background: `linear-gradient(135deg, hsl(185 85% 55% / ${opacity}), hsl(270 60% 60% / ${opacity}))`
               }} />)}
               </div>
               <div className="text-left">
