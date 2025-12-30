@@ -4,27 +4,27 @@ import { CheckCircle } from "lucide-react";
 const steps = [
   {
     number: "01",
-    title: "Import Your Leads",
-    description: "Connect your CRM or upload a CSV. Our AI enriches contact data and verifies emails automatically.",
-    features: ["CRM integrations", "Email verification", "Data enrichment"],
+    title: "We Review Your ICP & Offer",
+    description: "You share who you're targeting and what you're selling. We verify the positioning makes sense for cold outreach.",
+    features: ["ICP validation", "Offer positioning review", "Compliance check"],
   },
   {
     number: "02",
-    title: "Craft Perfect Emails",
-    description: "Use AI-powered templates that adapt to each recipient. Personalize at scale without losing authenticity.",
-    features: ["AI personalization", "A/B testing", "Template library"],
+    title: "We Build Your Sequences",
+    description: "Using proven patterns, we craft multi-step email sequences tailored to your market. No generic templates.",
+    features: ["Custom sequences", "A/B testing built-in", "Personalization at scale"],
   },
   {
     number: "03",
-    title: "Launch & Optimize",
-    description: "Schedule campaigns at optimal send times. Our AI learns from responses to improve future outreach.",
-    features: ["Smart scheduling", "Auto follow-ups", "Learning algorithm"],
+    title: "Campaigns Start Paused",
+    description: "Every campaign launches paused. You review leads, copy, and settings before anything sends.",
+    features: ["You approve before sending", "Lead verification complete", "Domain health confirmed"],
   },
   {
     number: "04",
-    title: "Convert & Scale",
-    description: "Track every interaction, score leads, and focus your energy on prospects ready to convert.",
-    features: ["Lead scoring", "Pipeline tracking", "Revenue attribution"],
+    title: "Weekly Optimization Cycles",
+    description: "Each week, we analyze performance, identify weak steps, and propose improvements — with your approval.",
+    features: ["Performance analysis", "Staged improvements", "Compounding results"],
   },
 ];
 
@@ -44,7 +44,8 @@ const HowItWorksSection = () => {
             How it works
           </h2>
           <p className="text-lg text-muted-foreground">
-            Get started in minutes and see results within your first campaign.
+            A clear process with built-in safeguards at every step. 
+            You stay in control while we handle the execution.
           </p>
         </motion.div>
 
