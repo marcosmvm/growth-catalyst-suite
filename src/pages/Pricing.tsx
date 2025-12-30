@@ -1,312 +1,410 @@
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import { CheckCircle, ArrowRight, HelpCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Check, Shield, Clock, Calendar, AlertTriangle, ArrowRight, HelpCircle } from "lucide-react";
+import { useState } from "react";
+import CalendlyModal from "@/components/CalendlyModal";
 
-const pricingPlans = [
+const pricingTiers = [
   {
-    name: "Starter",
-    price: "$1,500",
-    period: "per month",
-    description: "Perfect for small businesses testing outbound for the first time",
+    name: "Foundation",
+    subtitle: "For teams getting started with safe outbound",
+    price: "$2,500",
+    period: "/month",
+    commitment: "90-day minimum",
     features: [
-      "Up to 2,000 prospects/month",
-      "1 ICP/target market",
-      "Basic email sequences",
-      "Weekly reporting",
-      "CRM integration",
-      "Dedicated account manager"
+      "Up to 5,000 leads/month vetted & enriched",
+      "2 active email campaigns",
+      "All safety checks (DNC, domain health, dedup)",
+      "Campaigns start paused—you approve before sending",
+      "Weekly optimization reports",
+      "Dedicated Slack channel",
+      "Domain health monitoring",
     ],
-    cta: "Start your pilot",
-    popular: false
+    highlight: false,
+    cta: "Start Foundation",
   },
   {
     name: "Growth",
-    price: "$3,000",
-    period: "per month",
-    description: "For growing companies ready to scale their pipeline predictably",
-    features: [
-      "Up to 5,000 prospects/month",
-      "2-3 ICPs/target markets",
-      "Advanced multi-touch sequences",
-      "Bi-weekly strategy calls",
-      "A/B testing & optimization",
-      "Lead scoring system"
-    ],
-    prevPlanFeatures: "Everything in Starter, plus:",
-    cta: "Start your pilot",
-    popular: true
-  },
-  {
-    name: "Enterprise",
+    subtitle: "For teams scaling predictable outbound",
     price: "$5,000",
-    period: "per month",
-    description: "Full-scale outbound engine for aggressive growth goals",
+    period: "/month",
+    commitment: "90-day minimum",
     features: [
-      "Unlimited prospects",
-      "Unlimited ICPs/markets",
-      "Custom email + LinkedIn campaigns",
-      "Weekly strategy calls",
-      "Dedicated SDR support",
-      "Custom integrations"
+      "Up to 15,000 leads/month vetted & enriched",
+      "5 active email campaigns",
+      "All Foundation features",
+      "A/B testing with staged rollout",
+      "Weekly optimization calls",
+      "Priority support response",
+      "Custom ICP research",
+      "Multi-domain strategy",
     ],
-    prevPlanFeatures: "Everything in Growth, plus:",
-    cta: "Start your pilot",
-    popular: false
+    highlight: true,
+    cta: "Start Growth",
+    badge: "Most Popular",
   },
   {
-    name: "Custom",
-    price: "Custom",
-    period: "",
-    description: "Designed for organizations with specialized outbound needs",
+    name: "Scale",
+    subtitle: "For teams running high-volume, high-stakes outbound",
+    price: "$10,000",
+    period: "/month",
+    commitment: "90-day minimum",
     features: [
-      "White-glove onboarding and implementation",
-      "Plan tailored to your business",
-      "Dedicated service for seamless setup",
-      "Priority customer support"
+      "Up to 50,000 leads/month vetted & enriched",
+      "Unlimited active campaigns",
+      "All Growth features",
+      "Dedicated account manager",
+      "Custom integrations (CRM, Slack, etc.)",
+      "Advanced analytics & reporting",
+      "Quarterly strategy sessions",
+      "Enterprise SLA",
     ],
-    prevPlanFeatures: "Everything in Enterprise, plus:",
-    cta: "Schedule a demo",
-    popular: false
-  }
+    highlight: false,
+    cta: "Start Scale",
+  },
+];
+
+const commitmentReasons = [
+  {
+    icon: Shield,
+    title: "Domain reputation takes time to build",
+    description: "Rushing email volume destroys deliverability. We ramp carefully over 90 days to protect your sender reputation.",
+  },
+  {
+    icon: Clock,
+    title: "Optimization compounds over time",
+    description: "Each week we learn what works for your ICP. The best results come from weeks 6-12, not week 1.",
+  },
+  {
+    icon: Calendar,
+    title: "Real pipelines need consistency",
+    description: "Outbound isn't a one-off blast. It's a predictable system that improves every month you run it.",
+  },
+];
+
+const notForYou = [
+  "One-off 'blast' campaigns that burn domains",
+  "$500/mo 'try it for a month' experiments",
+  "Anyone unwilling to respect sending limits",
+  "Teams who want overnight results",
 ];
 
 const faqs = [
   {
-    question: "What's included in the pilot program?",
-    answer: "Our pilot typically runs 60-90 days and includes full setup: ICP research, list building, email infrastructure, campaign creation, and optimization. You'll see real results before committing to a longer engagement."
+    question: "Why a 90-day minimum commitment?",
+    answer: "Building a safe, effective outbound engine takes time. Domain reputation builds gradually, optimization compounds over weeks, and rushing leads to burned domains. The 90-day window lets us do it right—protecting your deliverability while scaling results."
   },
   {
-    question: "How quickly can we expect results?",
-    answer: "Most clients see their first qualified meetings within 2-3 weeks of campaign launch. By month 2, you should have a steady flow of 10-20 qualified opportunities per month depending on your plan."
+    question: "What happens if my domain reputation drops?",
+    answer: "Every campaign starts paused. You approve before we send. We monitor domain health continuously and automatically throttle or pause if we detect any issues. You also have a one-click kill switch at any time."
   },
   {
-    question: "What makes your leads 'sales-qualified'?",
-    answer: "Every lead meets your specific qualification criteria—company size, role/title, budget indicators, and expressed interest. We don't count tire-kickers. Your sales team only talks to real decision-makers."
+    question: "How do you handle unsubscribes and compliance?",
+    answer: "All leads are screened against DNC lists before entering any campaign. We automatically process unsubscribes and maintain compliance with CAN-SPAM, GDPR, and other regulations. Every action is logged in your audit trail."
   },
   {
-    question: "Do you guarantee a certain number of meetings?",
-    answer: "While results vary by industry and ICP, we provide performance benchmarks based on your market. Our Growth and Enterprise plans include performance commitments, and we adjust strategy if targets aren't being met."
+    question: "What's included in the 'safety checks'?",
+    answer: "Before any lead enters a campaign: DNC list verification, domain health scoring, duplicate detection across all your campaigns, email validity verification, and company/role validation against your ICP criteria."
   },
   {
-    question: "What tools and data sources do you use?",
-    answer: "We use enterprise-grade tools including Apollo, ZoomInfo, and proprietary enrichment platforms for data. For email delivery, we use dedicated sending infrastructure with proper warmup and deliverability monitoring."
+    question: "Can I pause or cancel mid-commitment?",
+    answer: "You can pause campaigns at any time with our one-click kill switch. The 90-day commitment is for billing purposes—we need that runway to build your engine properly. Early termination requires paying out the remaining commitment."
   },
   {
-    question: "Can we pause or cancel anytime?",
-    answer: "Yes. We offer month-to-month engagements after your initial pilot. We're confident in our results, so we don't lock you into long contracts. 30-day notice for cancellation."
-  }
+    question: "When do I start seeing results?",
+    answer: "Weeks 1-3: Infrastructure setup and careful warmup. Weeks 4-6: First campaigns launch (with your approval). Weeks 6-12: Optimization kicks in and results compound. Most clients see their strongest performance in months 2-3."
+  },
 ];
 
 const Pricing = () => {
+  const [calendlyOpen, setCalendlyOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main>
-        {/* Hero Section with Premium Effects */}
-        <section className="pt-32 pb-20 px-6 relative overflow-hidden">
-          {/* Background Effects */}
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-          </div>
-
-          <div className="container mx-auto text-center max-w-4xl relative z-10">
-            <motion.span 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
-            >
-              Simple, Transparent Pricing
-            </motion.span>
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
-            >
-              Invest in Pipeline, Not Overhead
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-muted-foreground max-w-2xl mx-auto"
-            >
-              Monthly retainers that deliver predictable results. Start with a pilot, scale when you're ready.
-            </motion.p>
-          </div>
-        </section>
-
-        {/* Pricing Cards with Premium Styling */}
-        <section className="pb-20 px-6">
-          <div className="container mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-              {pricingPlans.map((plan, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`rounded-2xl p-6 border flex flex-col relative overflow-hidden ${
-                    plan.popular
-                      ? "glass border-primary/30 shadow-lg shadow-primary/10"
-                      : "glass border-border/50 hover:border-primary/20 transition-colors"
-                  }`}
-                >
-                  {plan.popular && (
-                    <>
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
-                      <span className="absolute -top-px left-1/2 -translate-x-1/2 px-4 py-1 rounded-b-lg gradient-bg text-primary-foreground text-xs font-medium whitespace-nowrap">
-                        Most popular
-                      </span>
-                    </>
-                  )}
-                  <div className="mb-6 relative z-10">
-                    <h3 className="text-lg font-heading text-foreground mb-2">{plan.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-4 min-h-[40px]">{plan.description}</p>
-                    <div className="flex items-baseline gap-1">
-                      <span className="text-3xl font-heading text-foreground">{plan.price}</span>
-                      {plan.period && <span className="text-sm text-muted-foreground">{plan.period}</span>}
-                    </div>
-                  </div>
-
-                  <Link to="/contact" className="w-full mb-6 relative z-10">
-                    <Button
-                      variant={plan.popular ? "hero" : "outline"}
-                      className={`w-full ${!plan.popular && "border-primary/30 hover:bg-primary/10"}`}
-                    >
-                      {plan.cta}
-                    </Button>
-                  </Link>
-
-                  {plan.prevPlanFeatures && (
-                    <p className="text-sm text-foreground font-medium mb-4 relative z-10">{plan.prevPlanFeatures}</p>
-                  )}
-
-                  <ul className="space-y-3 flex-1 relative z-10">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm">
-                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Value Props with Premium Styling */}
-        <section className="py-20 px-6 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
-          <div className="container mx-auto relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center"
-            >
-              <div className="glass rounded-2xl p-6 border border-border/50">
-                <div className="text-4xl font-heading text-primary mb-2">No</div>
-                <div className="text-muted-foreground">Long-term contracts</div>
-              </div>
-              <div className="glass rounded-2xl p-6 border border-border/50">
-                <div className="text-4xl font-heading text-primary mb-2">100%</div>
-                <div className="text-muted-foreground">Transparent reporting</div>
-              </div>
-              <div className="glass rounded-2xl p-6 border border-border/50">
-                <div className="text-4xl font-heading text-primary mb-2">60-90</div>
-                <div className="text-muted-foreground">Day pilot to prove ROI</div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* FAQ Section with Premium Styling */}
-        <section className="py-20 px-6">
-          <div className="container mx-auto max-w-3xl">
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-muted-foreground">
-                Everything you need to know about our service.
-              </p>
-            </motion.div>
-
-            <div className="space-y-6">
-              {faqs.map((faq, index) => (
-                <motion.div 
-                  key={index} 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="glass rounded-xl p-6 border border-border/50 hover:border-primary/20 transition-colors"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center flex-shrink-0">
-                      <HelpCircle className="w-4 h-4 text-primary-foreground" />
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-foreground mb-2">{faq.question}</h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section with Premium Styling */}
-        <section className="py-20 px-6 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-            <div className="absolute top-0 right-1/4 w-48 h-48 bg-accent/10 rounded-full blur-3xl" />
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+      
+      {/* Hero Section */}
+      <section className="pt-32 pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 hero-glow" />
+        <div className="absolute inset-0 mesh-gradient opacity-50" />
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="container mx-auto text-center max-w-3xl relative z-10"
+            className="text-center max-w-3xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
-              Ready to See It in Action?
+            <span className="exclusive-badge mb-6 inline-block">
+              <Shield className="w-3 h-3" />
+              90-Day Commitment
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading mb-6">
+              Pricing built for{" "}
+              <span className="gradient-text">long-term results</span>
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              We don't do month-to-month experiments. Our 90-day minimum ensures we have the time to build a safe, compounding outbound engine—not a domain-burning sprint.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Pricing Tiers */}
+      <section className="py-16 relative">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {pricingTiers.map((tier, index) => (
+              <motion.div
+                key={tier.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`relative premium-card rounded-2xl p-8 ${
+                  tier.highlight ? "ring-2 ring-primary/50" : ""
+                }`}
+              >
+                {tier.badge && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="px-4 py-1 text-xs font-medium gradient-bg text-primary-foreground rounded-full">
+                      {tier.badge}
+                    </span>
+                  </div>
+                )}
+                
+                <div className="mb-6">
+                  <h3 className="text-2xl font-heading mb-1">{tier.name}</h3>
+                  <p className="text-sm text-muted-foreground">{tier.subtitle}</p>
+                </div>
+                
+                <div className="mb-6">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl font-heading gradient-text">{tier.price}</span>
+                    <span className="text-muted-foreground">{tier.period}</span>
+                  </div>
+                  <p className="text-sm text-primary mt-1 flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    {tier.commitment}
+                  </p>
+                </div>
+                
+                <ul className="space-y-3 mb-8">
+                  {tier.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <Check className="w-4 h-4 text-primary shrink-0 mt-1" />
+                      <span className="text-sm text-muted-foreground">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <Button
+                  variant={tier.highlight ? "hero" : "outline"}
+                  className="w-full"
+                  onClick={() => setCalendlyOpen(true)}
+                >
+                  {tier.cta}
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why 90 Days Section */}
+      <section className="py-20 relative">
+        <div className="absolute inset-0 mesh-gradient opacity-30" />
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-heading mb-4">
+              Why we require a{" "}
+              <span className="gradient-text">90-day commitment</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Short-term thinking destroys outbound. Here's why we're different.
+            </p>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {commitmentReasons.map((reason, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="premium-card rounded-xl p-6"
+              >
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <reason.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-heading mb-2">{reason.title}</h3>
+                <p className="text-sm text-muted-foreground">{reason.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Not For You Section */}
+      <section className="py-16 relative">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto premium-card rounded-2xl p-8"
+          >
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 rounded-lg bg-destructive/10 flex items-center justify-center shrink-0">
+                <AlertTriangle className="w-6 h-6 text-destructive" />
+              </div>
+              <div>
+                <h3 className="text-xl font-heading mb-1">This is NOT for you if...</h3>
+                <p className="text-sm text-muted-foreground">
+                  We're selective about who we work with. This protects both of us.
+                </p>
+              </div>
+            </div>
+            
+            <ul className="space-y-3">
+              {notForYou.map((item, index) => (
+                <li key={index} className="flex items-center gap-3 text-muted-foreground">
+                  <div className="w-1.5 h-1.5 rounded-full bg-destructive" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* What's Included in Every Tier */}
+      <section className="py-20 relative">
+        <div className="absolute inset-0 hero-glow opacity-50" />
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-heading mb-4">
+              Included in{" "}
+              <span className="gradient-text">every tier</span>
+            </h2>
+          </motion.div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {[
+              { icon: Shield, label: "Full safety suite", desc: "DNC, dedup, domain health" },
+              { icon: Clock, label: "Paused-by-default", desc: "You approve before sending" },
+              { icon: Calendar, label: "Weekly optimization", desc: "Continuous improvement loop" },
+              { icon: Check, label: "Audit trail", desc: "Full transparency & logs" },
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-3">
+                  <item.icon className="w-5 h-5 text-primary" />
+                </div>
+                <h4 className="font-medium mb-1">{item.label}</h4>
+                <p className="text-sm text-muted-foreground">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 px-6">
+        <div className="container mx-auto max-w-3xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-heading mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-muted-foreground">
+              Common questions about our commitment model and safety guarantees.
+            </p>
+          </motion.div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <motion.div 
+                key={index} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="premium-card rounded-xl p-6"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <HelpCircle className="w-4 h-4 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading text-foreground mb-2">{faq.question}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center max-w-2xl mx-auto"
+          >
+            <h2 className="text-3xl md:text-4xl font-heading mb-4">
+              Ready to build a{" "}
+              <span className="gradient-text">predictable outbound engine</span>?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Book a 30-minute strategy call to discuss your goals and see if we're a fit.
+              Book a safety walkthrough to see how we protect your domain while scaling your pipeline.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg" className="gap-2">
-                Schedule Strategy Call <ArrowRight className="w-4 h-4" />
-              </Button>
-              <Link to="/contact">
-                <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/10">
-                  Contact Us
-                </Button>
-              </Link>
-            </div>
+            <Button variant="hero" size="lg" onClick={() => setCalendlyOpen(true)}>
+              Book a Safety Walkthrough
+              <ArrowRight className="w-4 h-4 ml-2" />
+            </Button>
           </motion.div>
-        </section>
-      </main>
+        </div>
+      </section>
+
       <Footer />
+      
+      <CalendlyModal open={calendlyOpen} onOpenChange={setCalendlyOpen} />
     </div>
   );
 };
