@@ -1,36 +1,36 @@
 import { motion } from "framer-motion";
-import { Mail, Target, BarChart3, Zap, Users, Shield, Sparkles } from "lucide-react";
+import { CheckCircle, Shield, Mail, TrendingUp, Users, Lock, BarChart3 } from "lucide-react";
 
 const features = [
   {
-    icon: Mail,
-    title: "Intelligent Sequences",
-    description: "AI-crafted email flows that adapt in real-time based on recipient behavior and engagement signals.",
+    icon: Shield,
+    title: "Domain Protection",
+    description: "Automated DNC compliance, domain health monitoring, and smart sending limits to protect your reputation.",
   },
   {
-    icon: Target,
-    title: "Predictive Scoring",
-    description: "Machine learning algorithms that identify your highest-value prospects before they even engage.",
+    icon: Mail,
+    title: "Multi-Step Sequences",
+    description: "Proven email sequences that adapt based on recipient behavior. Each step optimized for response rates.",
   },
   {
     icon: BarChart3,
-    title: "Deep Analytics",
-    description: "Real-time performance intelligence with actionable insights to optimize every touchpoint.",
+    title: "Performance Analytics",
+    description: "Clear dashboards showing open rates, reply rates, and meetings booked. See what's working at a glance.",
   },
   {
-    icon: Zap,
-    title: "Autonomous Follow-ups",
-    description: "Self-optimizing timing algorithms ensure perfect delivery moments for maximum response rates.",
+    icon: TrendingUp,
+    title: "Weekly Improvements",
+    description: "Every week, the system identifies weak points and proposes tested improvements — with your approval.",
   },
   {
     icon: Users,
-    title: "Team Intelligence",
-    description: "Unified workspace with shared learnings, templates, and performance benchmarks across your organization.",
+    title: "Lead Verification",
+    description: "Every lead is screened for duplicates, verified email, and compliance before entering any campaign.",
   },
   {
-    icon: Shield,
-    title: "Enterprise Security",
-    description: "Bank-grade encryption, SOC 2 compliance, and advanced domain reputation management.",
+    icon: Lock,
+    title: "Full Control",
+    description: "Campaigns start paused. Changes are staged. You approve everything before it goes live.",
   },
 ];
 
@@ -51,15 +51,16 @@ const FeaturesSection = () => {
           className="text-center max-w-3xl mx-auto mb-20"
         >
           <div className="exclusive-badge rounded-full mb-6 inline-flex">
-            <Sparkles className="w-3 h-3" />
+            <CheckCircle className="w-3 h-3" />
             Capabilities
           </div>
           <h2 className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight">
-            Technology that{" "}
-            <span className="gradient-text italic">outperforms</span>
+            Safer, more{" "}
+            <span className="gradient-text italic">predictable</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Every feature engineered to give you an unfair advantage in outbound. This is what happens when AI meets precision.
+            Every feature built to protect your domain while generating meetings. 
+            No black boxes, no risky automation.
           </p>
         </motion.div>
 
