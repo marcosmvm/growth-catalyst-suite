@@ -7,20 +7,20 @@ const ColdEmailForAgencies = () => {
       industry="Agencies"
       badge="Cold Email for Agencies"
       headline="Stop Relying on Referrals.|Build a Predictable|Client Pipeline"
-      subheadline="We help marketing, creative, and digital agencies book 10-20 qualified sales calls per month with brands ready to invest in growth."
+      subheadline="We book 10-20 qualified sales calls per month for marketing, creative, and digital agencies."
       icon={Megaphone}
       painPoints={[
         {
           title: "Feast-or-Famine Revenue",
-          description: "One month you're turning down work, the next you're scrambling for clients. Predictable outbound ends the revenue rollercoaster.",
+          description: "One month you're turning down work. The next you're scrambling. Predictable outbound ends the rollercoaster.",
         },
         {
           title: "Referrals Don't Scale",
-          description: "Word-of-mouth got you here, but it won't get you to $1M+. We create a repeatable client acquisition engine.",
+          description: "Word-of-mouth got you here. It won't get you to $1M+. We create a repeatable acquisition engine.",
         },
         {
           title: "No Time for Business Development",
-          description: "You're busy delivering for clients, not prospecting. We handle the outreach while you focus on fulfillment.",
+          description: "You're busy delivering for clients, not prospecting. We handle outreach while you focus on fulfillment.",
         },
         {
           title: "Competing with Bigger Agencies",
@@ -44,7 +44,7 @@ const ColdEmailForAgencies = () => {
         { value: "$8K", label: "Avg. Retainer Won" },
       ]}
       testimonial={{
-        quote: "We signed 3 new retainer clients in our first month — each worth $5K/month. The campaign paid for itself in week two.",
+        quote: "3 new retainer clients in month one — each worth $5K/month. Quantum Insights paid for itself in week two.",
         author: "Sarah Mitchell",
         role: "Founder",
         company: "Pixel & Frame (Digital Agency)",

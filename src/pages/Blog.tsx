@@ -7,56 +7,56 @@ import { Link } from "react-router-dom";
 
 const blogPosts = [
   {
-    title: "The Ultimate Guide to Cold Email Deliverability in 2024",
-    excerpt: "Learn how to land in the inbox, not spam. We cover domain setup, warmup protocols, and the technical foundations for successful cold outreach.",
+    title: "The Ultimate Guide to Cold Email Deliverability in 2025",
+    excerpt: "Land in the inbox, not spam. Domain setup, warmup protocols, and the technical foundations that actually work.",
     category: "Deliverability",
-    author: "OutreachAI Team",
-    date: "Dec 10, 2024",
+    author: "Quantum Insights",
+    date: "Jan 3, 2025",
     readTime: "8 min read",
     featured: true
   },
   {
-    title: "How to Define Your Ideal Customer Profile (ICP)",
-    excerpt: "A step-by-step framework for identifying and targeting the prospects most likely to buy from you.",
+    title: "How to Define Your Ideal Customer Profile",
+    excerpt: "A simple framework for identifying the prospects most likely to buy. No fluff, just what works.",
     category: "Strategy",
-    author: "OutreachAI Team",
-    date: "Dec 5, 2024",
+    author: "Quantum Insights",
+    date: "Dec 28, 2024",
     readTime: "6 min read",
     featured: false
   },
   {
-    title: "Cold Email Subject Lines That Get 60%+ Open Rates",
-    excerpt: "We analyzed 50,000 cold emails to find the patterns that drive the highest open rates. Here's what works.",
+    title: "Subject Lines That Get 60%+ Open Rates",
+    excerpt: "We analyzed 50,000 cold emails. Here are the patterns that drive the highest opens.",
     category: "Copywriting",
-    author: "OutreachAI Team",
-    date: "Nov 28, 2024",
+    author: "Quantum Insights",
+    date: "Dec 20, 2024",
     readTime: "5 min read",
     featured: false
   },
   {
-    title: "5 Signs Your Cold Email Strategy Needs an Overhaul",
-    excerpt: "Low reply rates? Getting ignored? Here are the telltale signs that your outbound approach needs fixing.",
+    title: "5 Signs Your Cold Email Strategy Needs Work",
+    excerpt: "Low reply rates? Getting ignored? Here are the telltale signs your outbound needs fixing.",
     category: "Strategy",
-    author: "OutreachAI Team",
-    date: "Nov 20, 2024",
+    author: "Quantum Insights",
+    date: "Dec 15, 2024",
     readTime: "4 min read",
     featured: false
   },
   {
     title: "Building a Predictable B2B Sales Pipeline",
-    excerpt: "How to create a consistent flow of qualified opportunities without the feast-or-famine cycle.",
+    excerpt: "Create a consistent flow of qualified opportunities. End the feast-or-famine cycle.",
     category: "Pipeline",
-    author: "OutreachAI Team",
-    date: "Nov 15, 2024",
+    author: "Quantum Insights",
+    date: "Dec 10, 2024",
     readTime: "7 min read",
     featured: false
   },
   {
     title: "The ROI of Outsourced Lead Generation",
-    excerpt: "Breaking down the real costs and returns of building internal SDR teams vs. outsourcing outbound.",
+    excerpt: "Internal SDR teams vs. outsourcing outbound. The real costs and returns, broken down.",
     category: "ROI",
-    author: "OutreachAI Team",
-    date: "Nov 8, 2024",
+    author: "Quantum Insights",
+    date: "Dec 5, 2024",
     readTime: "6 min read",
     featured: false
   }
@@ -93,7 +93,7 @@ const Blog = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
             >
-              Cold Email Insights & Best Practices
+              Outbound That Works
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -101,7 +101,7 @@ const Blog = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-muted-foreground max-w-2xl mx-auto"
             >
-              Actionable strategies to improve your outbound campaigns and generate more qualified leads.
+              Proven strategies to book more meetings. No fluff.
             </motion.p>
           </div>
         </section>
@@ -197,10 +197,10 @@ const Blog = () => {
             className="container mx-auto text-center max-w-3xl relative z-10"
           >
             <h2 className="text-3xl font-heading text-foreground mb-4">
-              Ready to Apply These Strategies?
+              Ready to Get More Meetings?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Let us run your cold email campaigns while you focus on closing deals.
+              We run your campaigns. You close deals.
             </p>
             <Link to="/contact">
               <Button variant="hero" size="lg" className="gap-2">

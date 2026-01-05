@@ -6,17 +6,17 @@ const ColdEmailForStaffing = () => {
     <VerticalLandingPage
       industry="Staffing & Recruiting"
       badge="Cold Email for Staffing"
-      headline="Fill Your Staffing|Pipeline with Companies|Ready to Hire"
-      subheadline="We help staffing agencies and recruiting firms book meetings with HR leaders and hiring managers actively looking to fill roles."
+      headline="Fill Your Pipeline|with Companies|Ready to Hire"
+      subheadline="We book meetings with HR leaders and hiring managers actively looking to fill roles."
       icon={Users}
       painPoints={[
         {
           title: "Intense Competition for Clients",
-          description: "Every staffing firm is chasing the same accounts. Our targeted approach helps you reach companies before competitors do.",
+          description: "Every staffing firm chases the same accounts. Our targeted approach reaches companies before competitors do.",
         },
         {
           title: "Relationship-Dependent Sales",
-          description: "Relying solely on relationships limits growth. We create a predictable new client acquisition channel.",
+          description: "Relying solely on relationships limits growth. We create a predictable client acquisition channel.",
         },
         {
           title: "Finding Companies Actively Hiring",
@@ -44,7 +44,7 @@ const ColdEmailForStaffing = () => {
         { value: "3.2x", label: "Pipeline Growth" },
       ]}
       testimonial={{
-        quote: "We added 8 new client accounts in 60 days. The ROI from placements has been over 15x what we paid for the service.",
+        quote: "8 new client accounts in 60 days. ROI from placements: 15x what we paid Quantum Insights.",
         author: "Michael Torres",
         role: "Managing Director",
         company: "TalentBridge Staffing",

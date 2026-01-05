@@ -6,17 +6,17 @@ const ColdEmailForConsulting = () => {
     <VerticalLandingPage
       industry="Consulting"
       badge="Cold Email for Consultants"
-      headline="High-Value Consulting|Engagements,|Delivered to Your Inbox"
-      subheadline="We connect consultants and advisory firms with decision-makers actively seeking expertise — so you spend time advising, not prospecting."
+      headline="High-Value Engagements.|Delivered to Your Inbox."
+      subheadline="We connect consultants with decision-makers actively seeking expertise. You advise. We prospect."
       icon={Briefcase}
       painPoints={[
         {
           title: "Inconsistent Project Pipeline",
-          description: "One big engagement ends, and you're back to networking and hoping. We create steady inbound interest from qualified buyers.",
+          description: "One big engagement ends, and you're back to networking and hoping. We create steady interest from qualified buyers.",
         },
         {
           title: "Time Spent Networking, Not Billing",
-          description: "Every hour at conferences and LinkedIn is an hour not spent on billable work. We prospect while you consult.",
+          description: "Every hour at conferences is an hour not billed. We prospect while you consult.",
         },
         {
           title: "Reaching the Right Decision-Makers",
@@ -24,7 +24,7 @@ const ColdEmailForConsulting = () => {
         },
         {
           title: "Positioning as a Premium Expert",
-          description: "Cold outreach done wrong looks desperate. Our approach positions you as a sought-after expert, not a commodity.",
+          description: "Cold outreach done wrong looks desperate. Our approach positions you as sought-after, not a commodity.",
         },
       ]}
       benefits={[
@@ -44,7 +44,7 @@ const ColdEmailForConsulting = () => {
         { value: "12", label: "Calls/Month (Avg)" },
       ]}
       testimonial={{
-        quote: "I landed a $120K strategy engagement from their second campaign. The messaging positioned me exactly right for enterprise buyers.",
+        quote: "$120K strategy engagement from their second campaign. Quantum Insights positioned me exactly right for enterprise buyers.",
         author: "David Reynolds",
         role: "Principal Consultant",
         company: "Reynolds Advisory Group",

@@ -6,25 +6,25 @@ const ColdEmailForSaaS = () => {
     <VerticalLandingPage
       industry="SaaS"
       badge="Cold Email for SaaS"
-      headline="Accelerate Your|SaaS Pipeline|Without Burning Out Your SDRs"
-      subheadline="We help SaaS companies book 15-30 qualified demos per month with targeted outbound that cuts through inbox noise and converts."
+      headline="More Demos.|Less SDR Burnout.|Better Pipeline."
+      subheadline="We book 15-30 qualified demos per month for SaaS companies. Targeted outbound that cuts through inbox noise."
       icon={Code}
       painPoints={[
         {
           title: "Long Sales Cycles Stalling Growth",
-          description: "Enterprise deals take months, and your pipeline needs constant feeding to hit quarterly targets. We keep the top of funnel full while you close.",
+          description: "Enterprise deals take months. Your pipeline needs constant feeding. We keep the top of funnel full while you close.",
         },
         {
           title: "High CAC Eating Your Margins",
-          description: "Paid ads and inbound alone are expensive and unpredictable. Cold email delivers qualified leads at a fraction of the cost.",
+          description: "Paid ads and inbound are expensive and unpredictable. Cold email delivers qualified leads at a fraction of the cost.",
         },
         {
           title: "Competitive Market Saturation",
-          description: "Every buyer's inbox is flooded. Our hyper-personalized approach cuts through the noise and gets responses.",
+          description: "Every buyer's inbox is flooded. Our hyper-personalized approach cuts through and gets responses.",
         },
         {
           title: "SDR Burnout and Turnover",
-          description: "Training SDRs is expensive, and turnover kills momentum. We become your consistent outbound engine.",
+          description: "Training SDRs is expensive. Turnover kills momentum. We become your consistent outbound engine.",
         },
       ]}
       benefits={[
@@ -44,7 +44,7 @@ const ColdEmailForSaaS = () => {
         { value: "40%", label: "Lower CAC" },
       ]}
       testimonial={{
-        quote: "We went from 5 demos a month to 25+ in the first 90 days. The ROI is unreal — we've already closed $180K in new ARR from their leads.",
+        quote: "5 demos a month to 25+ in 90 days. We've already closed $180K in new ARR from Quantum Insights leads.",
         author: "Marcus Chen",
         role: "VP of Sales",
         company: "CloudSync (Series A SaaS)",

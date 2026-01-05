@@ -15,7 +15,7 @@ const caseStudies = [
       pipeline: "$480K pipeline",
       timeframe: "90 days"
     },
-    quote: "OutreachAI transformed our outbound. We went from 3-4 meetings a month to over 20, and our sales team finally has a predictable pipeline to work with.",
+    quote: "Quantum Insights changed everything. We went from 3-4 meetings a month to over 20. Our sales team finally has a predictable pipeline.",
     author: "Sarah Chen",
     role: "VP of Sales"
   },
@@ -28,7 +28,7 @@ const caseStudies = [
       pipeline: "$1.2M pipeline",
       timeframe: "6 months"
     },
-    quote: "We couldn't justify hiring SDRs, but we needed enterprise meetings. OutreachAI delivered decision-maker access we couldn't get on our own.",
+    quote: "We couldn't justify hiring SDRs, but we needed enterprise meetings. Quantum Insights delivered decision-maker access we couldn't get on our own.",
     author: "Michael Torres",
     role: "CEO"
   },
@@ -41,7 +41,7 @@ const caseStudies = [
       pipeline: "$320K pipeline",
       timeframe: "60 days"
     },
-    quote: "The difference is night and day. Every meeting is with someone who actually needs our solution and has budget authority. No more tire-kickers.",
+    quote: "Night and day difference. Every meeting is with someone who actually needs our solution and has budget authority. No more tire-kickers.",
     author: "David Park",
     role: "Head of Business Development"
   }
@@ -82,7 +82,7 @@ const CaseStudies = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
             >
-              Real Results for Real Businesses
+              Results. Not Promises.
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -90,7 +90,7 @@ const CaseStudies = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-muted-foreground max-w-2xl mx-auto"
             >
-              See how B2B companies use OutreachAI to fill their pipeline with qualified opportunities.
+              See how B2B companies fill their pipeline with Quantum Insights.
             </motion.p>
           </div>
         </section>
@@ -201,10 +201,10 @@ const CaseStudies = () => {
             className="container mx-auto text-center max-w-3xl relative z-10"
           >
             <h2 className="text-3xl font-heading text-foreground mb-4">
-              Ready to Be Our Next Success Story?
+              Your Turn.
             </h2>
             <p className="text-muted-foreground mb-8">
-              Book a strategy call to see how we can help grow your pipeline.
+              Book a call. See what we can do for your pipeline.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg" className="gap-2">
