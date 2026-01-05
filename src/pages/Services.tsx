@@ -152,7 +152,7 @@ const Services = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
             >
-              We Fill Your Pipeline. You Close Deals.
+              Pipeline built. Deals closed.
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -160,7 +160,7 @@ const Services = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
             >
-              Research. Lists. Campaigns. Qualified meetings on your calendar. We handle the outbound so your team can sell.
+              Research. Lists. Campaigns. Qualified meetings. We handle outbound so your team can sell.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
@@ -169,7 +169,7 @@ const Services = () => {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button variant="hero" size="lg" className="gap-2">
-                Schedule a Strategy Call <ArrowRight className="w-4 h-4" />
+                Book a Call <ArrowRight className="w-4 h-4" />
               </Button>
               <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/10">
                 View Pricing
@@ -191,10 +191,10 @@ const Services = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
-                Full-Service Outbound Solution
+                Full-service outbound.
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Everything you need to build a predictable pipeline without hiring extra staff or wasting money on ineffective outreach.
+                Everything you need for predictable pipeline. No extra staff. No wasted budget.
               </p>
             </motion.div>
 
@@ -242,10 +242,10 @@ const Services = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
-                Our Proven Process
+                How it works.
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                A systematic approach that delivers 10-20 high-quality opportunities per month for most B2B companies.
+                Systematic approach. 10-20 qualified meetings per month for most B2B companies.
               </p>
             </motion.div>
 
@@ -289,10 +289,10 @@ const Services = () => {
             className="container mx-auto text-center max-w-3xl relative z-10"
           >
             <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
-              Ready to Fill Your Pipeline?
+              Ready for more meetings?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Start with a performance-focused pilot and see results before committing long term.
+              Start with a pilot. See results before committing long term.
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <Input

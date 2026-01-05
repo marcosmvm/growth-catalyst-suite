@@ -83,7 +83,7 @@ const AppointmentSetting = () => {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
               >
-                Your Calendar, Filled With Qualified Meetings
+                Qualified meetings. On your calendar.
               </motion.h1>
               <motion.p 
                 initial={{ opacity: 0, y: 30 }}
@@ -91,7 +91,7 @@ const AppointmentSetting = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
               >
-                We handle everything from lead response to qualification to scheduling. Your sales team just shows up and closes.
+                Lead response to qualification to scheduling. Handled. Your team just shows up and closes.
               </motion.p>
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
@@ -101,7 +101,7 @@ const AppointmentSetting = () => {
               >
                 <Link to="/contact">
                   <Button variant="hero" size="lg" className="gap-2">
-                    Start Booking Meetings <ArrowRight className="w-4 h-4" />
+                    Get Started <ArrowRight className="w-4 h-4" />
                   </Button>
                 </Link>
                 <Link to="/how-it-works">
@@ -155,10 +155,10 @@ const AppointmentSetting = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
-                End-to-End Appointment Setting
+                End-to-end scheduling.
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                From first reply to confirmed meeting, we manage the entire scheduling process.
+                First reply to confirmed meeting. We manage the entire process.
               </p>
             </motion.div>
 
@@ -197,10 +197,10 @@ const AppointmentSetting = () => {
                   transition={{ duration: 0.6 }}
                 >
                   <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-6">
-                    What Makes a "Qualified" Meeting?
+                    What "qualified" means.
                   </h2>
                   <p className="text-muted-foreground mb-8 leading-relaxed">
-                    We don't count tire-kickers. Every meeting on your calendar meets strict qualification criteria tailored to your sales process.
+                    No tire-kickers. Every meeting meets strict criteria tailored to your sales process.
                   </p>
                   <ul className="space-y-4">
                     {qualificationCriteria.map((criteria, index) => (
@@ -275,10 +275,10 @@ const AppointmentSetting = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
-                The Seamless Handoff
+                Seamless handoff.
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Every meeting comes with everything your sales team needs to close.
+                Every meeting comes with everything your team needs to close.
               </p>
             </motion.div>
 
@@ -323,10 +323,10 @@ const AppointmentSetting = () => {
             className="container mx-auto text-center max-w-3xl relative z-10"
           >
             <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
-              Let Us Fill Your Sales Calendar
+              Ready for a full calendar?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Stop chasing leads. Start closing deals. We'll handle the rest.
+              Stop chasing leads. Start closing deals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
