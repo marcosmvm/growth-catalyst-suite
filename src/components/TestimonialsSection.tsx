@@ -3,7 +3,7 @@ import { Star, Quote, Sparkles } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "This isn't just a tool—it's an unfair advantage. We 5x'd our pipeline in 90 days without adding headcount.",
+    quote: "5x pipeline in 90 days. No new hires. Just Quantum Insights doing what they promised.",
     author: "Sarah Chen",
     role: "VP of Sales",
     company: "TechFlow",
@@ -11,7 +11,7 @@ const testimonials = [
     result: "+500% pipeline",
   },
   {
-    quote: "The AI personalization is on another level. Every email feels crafted by hand, but we're sending at massive scale.",
+    quote: "25% reply rates. Real personalization at scale. The numbers speak for themselves.",
     author: "Marcus Johnson",
     role: "Growth Lead",
     company: "Startup Inc",
@@ -19,7 +19,7 @@ const testimonials = [
     result: "25% reply rate",
   },
   {
-    quote: "We evaluated every platform on the market. Nothing comes close. This is enterprise-grade automation made accessible.",
+    quote: "200+ qualified meetings per month. They delivered exactly what they said they would.",
     author: "Emily Rodriguez",
     role: "Founder & CEO",
     company: "Scale Agency",
@@ -46,14 +46,14 @@ const TestimonialsSection = () => {
         >
           <div className="exclusive-badge rounded-full mb-6 inline-flex">
             <Sparkles className="w-3 h-3" />
-            Success Stories
+            Results
           </div>
           <h2 className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight">
-            Trusted by the{" "}
-            <span className="gradient-text italic">ambitious</span>
+            Real results.{" "}
+            <span className="gradient-text italic">Real clients.</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            See why the fastest-growing companies choose us to power their outbound.
+            What happens when cold email actually works.
           </p>
         </motion.div>
 

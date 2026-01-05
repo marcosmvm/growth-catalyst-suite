@@ -55,12 +55,11 @@ const FeaturesSection = () => {
             Capabilities
           </div>
           <h2 className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight">
-            Safer, more{" "}
-            <span className="gradient-text italic">predictable</span>
+            Safe. Predictable.{" "}
+            <span className="gradient-text italic">Effective.</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Every feature built to protect your domain while generating meetings. 
-            No black boxes, no risky automation.
+            Domain protection built in. Meetings generated. No black boxes.
           </p>
         </motion.div>
 

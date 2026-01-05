@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 
 const stats = [
   { value: "10M+", label: "Emails Delivered", sublabel: "Monthly" },
-  { value: "68%", label: "Average Open Rate", sublabel: "Industry avg: 21%" },
-  { value: "12%", label: "Reply Rate", sublabel: "4x industry standard" },
-  { value: "500+", label: "Elite Companies", sublabel: "Trust our platform" },
+  { value: "68%", label: "Open Rate", sublabel: "Industry avg: 21%" },
+  { value: "12%", label: "Reply Rate", sublabel: "4x industry average" },
+  { value: "500+", label: "Companies", sublabel: "Trust Quantum Insights" },
 ];
 
 const StatsSection = () => {
