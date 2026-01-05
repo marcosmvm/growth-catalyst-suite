@@ -73,10 +73,8 @@ const HeroSection = () => {
             delay: 0.1,
             ease: [0.25, 0.1, 0.25, 1]
           }} className="text-5xl md:text-7xl lg:text-8xl font-heading text-foreground leading-[1.1] tracking-tight text-balance">
-              Cold outbound that{" "}
-              <span className="gradient-text italic">won't burn</span>
-              <br />
-              your domains.
+              Cold email that{" "}
+              <span className="gradient-text">actually works.</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -91,9 +89,7 @@ const HeroSection = () => {
             delay: 0.2,
             ease: [0.25, 0.1, 0.25, 1]
           }} className="mt-8 text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-              We run your cold email on a governed engine: every campaign starts paused, 
-              every lead is vetted, and every week the system improves your reply rates 
-              without risking your domain.
+              More meetings. Less work. We run your outbound so you can focus on closing deals.
             </motion.p>
 
             {/* CTA Button */}

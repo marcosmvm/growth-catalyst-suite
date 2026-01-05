@@ -13,8 +13,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@outreachai.com",
-    href: "mailto:hello@outreachai.com"
+    value: "hello@quantuminsights.io",
+    href: "mailto:hello@quantuminsights.io"
   },
   {
     icon: Phone,
@@ -113,7 +113,7 @@ const Contact = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
             >
-              Let's Talk About Your Pipeline
+              Ready to Get More Meetings?
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -121,7 +121,7 @@ const Contact = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-muted-foreground max-w-2xl mx-auto"
             >
-              Ready to fill your calendar with qualified meetings? Let's discuss how we can help grow your business.
+              Tell us who you want to meet. We make it happen.
             </motion.p>
           </div>
         </section>

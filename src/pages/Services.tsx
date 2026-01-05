@@ -152,7 +152,7 @@ const Services = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
             >
-              Done-For-You B2B Lead Generation
+              We Fill Your Pipeline. You Close Deals.
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -160,7 +160,7 @@ const Services = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
             >
-              We function as your outsourced outbound engine—researching ideal buyers, building targeted lists, running campaigns, and handing your sales team warm, sales-ready meetings.
+              Research. Lists. Campaigns. Qualified meetings on your calendar. We handle the outbound so your team can sell.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
