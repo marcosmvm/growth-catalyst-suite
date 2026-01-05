@@ -6,8 +6,8 @@ const ColdEmailForAgencies = () => {
     <VerticalLandingPage
       industry="Agencies"
       badge="Cold Email for Agencies"
-      headline="Stop Relying on Referrals.|Build a Predictable|Client Pipeline"
-      subheadline="We book 10-20 qualified sales calls per month for marketing, creative, and digital agencies."
+      headline="Referrals got you here.|Outbound gets you further."
+      subheadline="10-20 qualified sales calls per month. For agencies ready to stop waiting."
       icon={Megaphone}
       painPoints={[
         {
@@ -44,7 +44,7 @@ const ColdEmailForAgencies = () => {
         { value: "$8K", label: "Avg. Retainer Won" },
       ]}
       testimonial={{
-        quote: "3 new retainer clients in month one — each worth $5K/month. Quantum Insights paid for itself in week two.",
+        quote: "3 retainer clients in month one. $5K/month each. Paid for itself in week two.",
         author: "Sarah Mitchell",
         role: "Founder",
         company: "Pixel & Frame (Digital Agency)",

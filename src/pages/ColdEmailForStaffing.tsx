@@ -6,8 +6,8 @@ const ColdEmailForStaffing = () => {
     <VerticalLandingPage
       industry="Staffing & Recruiting"
       badge="Cold Email for Staffing"
-      headline="Fill Your Pipeline|with Companies|Ready to Hire"
-      subheadline="We book meetings with HR leaders and hiring managers actively looking to fill roles."
+      headline="Companies hiring.|Meetings booked."
+      subheadline="HR leaders and hiring managers actively filling roles. On your calendar."
       icon={Users}
       painPoints={[
         {
@@ -44,7 +44,7 @@ const ColdEmailForStaffing = () => {
         { value: "3.2x", label: "Pipeline Growth" },
       ]}
       testimonial={{
-        quote: "8 new client accounts in 60 days. ROI from placements: 15x what we paid Quantum Insights.",
+        quote: "8 new accounts in 60 days. 15x ROI from placements.",
         author: "Michael Torres",
         role: "Managing Director",
         company: "TalentBridge Staffing",

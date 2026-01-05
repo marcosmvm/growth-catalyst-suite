@@ -6,8 +6,8 @@ const ColdEmailForConsulting = () => {
     <VerticalLandingPage
       industry="Consulting"
       badge="Cold Email for Consultants"
-      headline="High-Value Engagements.|Delivered to Your Inbox."
-      subheadline="We connect consultants with decision-makers actively seeking expertise. You advise. We prospect."
+      headline="You advise.|We prospect."
+      subheadline="High-value engagements delivered. Decision-makers who need your expertise."
       icon={Briefcase}
       painPoints={[
         {
@@ -44,7 +44,7 @@ const ColdEmailForConsulting = () => {
         { value: "12", label: "Calls/Month (Avg)" },
       ]}
       testimonial={{
-        quote: "$120K strategy engagement from their second campaign. Quantum Insights positioned me exactly right for enterprise buyers.",
+        quote: "$120K engagement from campaign two. Positioned exactly right for enterprise buyers.",
         author: "David Reynolds",
         role: "Principal Consultant",
         company: "Reynolds Advisory Group",

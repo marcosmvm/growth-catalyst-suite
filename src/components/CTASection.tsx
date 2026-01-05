@@ -32,12 +32,12 @@ const CTASection = () => {
             </div>
             
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-heading text-foreground mb-8 leading-tight text-balance">
-              Get more meetings.{" "}
-              <span className="gradient-text">Start today.</span>
+              Ready for more meetings?{" "}
+              <span className="gradient-text">Let's talk.</span>
             </h2>
             
             <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-              30-minute call. No pressure. See if we can help fill your pipeline.
+              30 minutes. No pressure. See if we're the right fit.
             </p>
 
             {/* CTA Button */}
@@ -53,7 +53,7 @@ const CTASection = () => {
                 className="group text-base px-8 py-6 h-auto"
                 onClick={() => setGetStartedOpen(true)}
               >
-                Book a Safety Walkthrough
+                Get Started
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>
