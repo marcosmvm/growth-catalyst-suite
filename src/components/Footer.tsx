@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Sparkles } from "lucide-react";
 
 const footerLinks = {
   Services: [
@@ -30,17 +29,14 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-12 mb-16">
           {/* Logo & Description */}
           <div className="col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl gradient-bg flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="text-2xl font-heading text-foreground">OutreachAI</span>
+            <Link to="/" className="flex items-center gap-1 mb-6">
+              <span className="text-2xl font-bold tracking-tight text-foreground">QUANTUM</span>
+              <span className="text-2xl font-bold tracking-tight text-primary">INSIGHTS</span>
             </Link>
             <p className="text-muted-foreground leading-relaxed max-w-xs mb-6">
-              Elite AI automation for outbound. Reserved for those who demand more from their technology.
+              Cold email that actually works. AI-powered outbound for B2B companies who demand results.
             </p>
-            <div className="exclusive-badge rounded-full inline-flex text-[10px]">
-              <Sparkles className="w-3 h-3" />
+            <div className="exclusive-badge inline-flex text-[10px]">
               Enterprise Ready
             </div>
           </div>
@@ -48,7 +44,7 @@ const Footer = () => {
           {/* Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="font-medium text-foreground mb-6 text-sm uppercase tracking-widest">{category}</h4>
+              <h4 className="font-semibold text-foreground mb-6 text-sm uppercase tracking-wider">{category}</h4>
               <ul className="space-y-4">
                 {links.map((link) => (
                   <li key={link.label}>
@@ -68,7 +64,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} OutreachAI. All rights reserved.
+            © {new Date().getFullYear()} Quantum Insights. All rights reserved.
           </p>
           <div className="flex gap-8">
             <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors premium-underline">
