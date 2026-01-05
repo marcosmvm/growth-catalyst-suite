@@ -56,7 +56,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
             >
-              We Get You Meetings. Period.
+              Meetings booked. Pipeline built.
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -64,7 +64,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-muted-foreground max-w-3xl"
             >
-              B2B companies hire us to fill their pipeline with qualified prospects. No extra headcount. No wasted budget. Just results.
+              B2B companies hire us to fill their calendar with qualified prospects. No extra headcount. No wasted budget.
             </motion.p>
           </div>
         </section>
@@ -82,17 +82,17 @@ const About = () => {
                 transition={{ duration: 0.6 }}
               >
                 <h2 className="text-3xl font-heading text-foreground mb-6">
-                  Why We Exist
+                  Why we exist.
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Hiring SDRs is expensive. Training takes months. Turnover kills momentum. Most agencies overpromise and underdeliver.
+                    SDRs are expensive. Training takes months. Turnover kills momentum. Most agencies overpromise.
                   </p>
                   <p>
-                    We built Quantum Insights because outbound should be simple: you tell us who you want to meet, we get them on your calendar.
+                    We built Quantum Insights for one reason: outbound should be simple. You tell us who to reach. We get them on your calendar.
                   </p>
                   <p>
-                    No fluff. No hype. Just qualified meetings with decision-makers who want to talk to you.
+                    No fluff. No hype. Qualified meetings with decision-makers who want to talk.
                   </p>
                 </div>
               </motion.div>
@@ -133,10 +133,10 @@ const About = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl font-heading text-foreground mb-6 text-center">
-                What We Actually Do
+                What we do.
               </h2>
               <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
-                We function as your outsourced outbound engine, handling every step of the process.
+                Your outsourced outbound engine. Every step handled.
               </p>
             </motion.div>
             
@@ -181,7 +181,7 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="text-3xl font-heading text-foreground mb-12 text-center"
             >
-              Our Values
+              How we operate.
             </motion.h2>
             <div className="grid md:grid-cols-2 gap-8">
               {values.map((value, index) => (
@@ -221,14 +221,14 @@ const About = () => {
             className="container mx-auto text-center max-w-3xl relative z-10"
           >
             <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
-              Let's Build Your Pipeline Together
+              Ready to fill your calendar?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Book a strategy call to discuss your goals and see how we can help.
+              30 minutes. See if we're the right fit.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg" className="gap-2">
-                Schedule a Call <ArrowRight className="w-4 h-4" />
+                Book a Call <ArrowRight className="w-4 h-4" />
               </Button>
               <Link to="/pricing">
                 <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/10">
