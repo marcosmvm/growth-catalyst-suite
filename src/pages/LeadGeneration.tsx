@@ -83,7 +83,7 @@ const LeadGeneration = () => {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
               >
-                Build Targeted Prospect Lists That Convert
+                Prospect lists that convert.
               </motion.h1>
               <motion.p 
                 initial={{ opacity: 0, y: 30 }}
@@ -91,7 +91,7 @@ const LeadGeneration = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
               >
-                Stop wasting time on unqualified leads. We build custom prospect lists of decision-makers who match your exact Ideal Customer Profile.
+                Verified decision-makers. Your exact ICP. Ready for outreach.
               </motion.p>
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
@@ -155,10 +155,10 @@ const LeadGeneration = () => {
               className="text-center mb-16"
             >
               <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
-                Precision Lead Generation at Scale
+                Quality data. Real buyers.
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Our data-driven approach ensures every prospect on your list is a potential buyer.
+                Every prospect verified. Every contact validated.
               </p>
             </motion.div>
 
@@ -197,10 +197,10 @@ const LeadGeneration = () => {
                   transition={{ duration: 0.6 }}
                 >
                   <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-6">
-                    From ICP to Pipeline-Ready Leads
+                    ICP to pipeline. That simple.
                   </h2>
                   <p className="text-muted-foreground mb-8 leading-relaxed">
-                    We don't just pull a list and hand it over. Our process ensures every lead is validated, enriched, and ready for outreach.
+                    Validated. Enriched. Ready for outreach.
                   </p>
                   <ul className="space-y-4">
                     {benefits.map((benefit, index) => (
@@ -279,10 +279,10 @@ const LeadGeneration = () => {
             className="container mx-auto text-center max-w-3xl relative z-10"
           >
             <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
-              Ready to Fill Your Pipeline?
+              Get your prospect list.
             </h2>
             <p className="text-muted-foreground mb-8">
-              Get a custom prospect list tailored to your ideal customer profile.
+              Custom-built for your ICP. Delivered in 48 hours.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">

@@ -79,7 +79,7 @@ const HowItWorks = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
             >
-              From Zero to Pipeline in 30 Days
+              Pipeline in 30 days. Here's how.
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -87,7 +87,7 @@ const HowItWorks = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8"
             >
-              A proven, systematic approach that delivers predictable results. Here's exactly how we build your outbound engine.
+              Four phases. Full transparency. You stay in control.
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
@@ -178,10 +178,10 @@ const HowItWorks = () => {
               className="text-center mb-12"
             >
               <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
-                What to Expect
+                The results. No fluff.
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Results you can count on once your campaigns are running.
+                What you get once campaigns are live.
               </p>
             </motion.div>
 
@@ -219,10 +219,10 @@ const HowItWorks = () => {
               className="text-center mb-12"
             >
               <h2 className="text-3xl md:text-4xl font-heading text-foreground mb-4">
-                Transparent Reporting
+                You see everything.
               </h2>
               <p className="text-muted-foreground">
-                Weekly and monthly reports show exactly how your campaigns perform.
+                Weekly reports. No hidden metrics. Full visibility.
               </p>
             </motion.div>
 
