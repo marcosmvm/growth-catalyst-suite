@@ -97,10 +97,10 @@ const Navbar = () => {
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-3">
               <Button variant="outline" size="sm" onClick={() => setCalendlyOpen(true)}>
-                Schedule Demo
+                Book a Call
               </Button>
               <Button variant="hero" size="sm" onClick={() => setGetStartedOpen(true)}>
-                Book a Safety Walkthrough
+                Get Started
               </Button>
             </div>
 
@@ -186,10 +186,10 @@ const Navbar = () => {
                 </Link>
                 <div className="flex flex-col gap-2 pt-4">
                   <Button variant="outline" className="w-full" onClick={() => { setCalendlyOpen(true); setIsOpen(false); }}>
-                    Schedule Demo
+                    Book a Call
                   </Button>
                   <Button variant="hero" className="w-full" onClick={() => { setGetStartedOpen(true); setIsOpen(false); }}>
-                    Book a Safety Walkthrough
+                    Get Started
                   </Button>
                 </div>
               </div>

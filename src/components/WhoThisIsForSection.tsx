@@ -47,11 +47,11 @@ const WhoThisIsForSection = () => {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight">
-            Is this{" "}
-            <span className="gradient-text italic">right for you?</span>
+            Right fit?{" "}
+            <span className="gradient-text italic">Let's check.</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            We're selective about who we work with. Here's how to know if we're a good fit.
+            We're selective. Here's how to know if we work together.
           </p>
         </motion.div>
 
@@ -138,7 +138,7 @@ const WhoThisIsForSection = () => {
           <p className="text-muted-foreground">
             Sound like you? {" "}
             <a href="#get-started" className="text-primary hover:underline">
-              Let's talk about building your outbound engine.
+              Let's talk.
             </a>
           </p>
         </motion.div>

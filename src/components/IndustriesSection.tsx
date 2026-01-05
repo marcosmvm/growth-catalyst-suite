@@ -56,15 +56,14 @@ const IndustriesSection = () => {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-2 rounded-full glass text-primary text-sm font-medium mb-6">
-            Works Across Industries
+            Industries
           </span>
           <h2 className="text-3xl md:text-5xl font-heading font-bold text-foreground mb-6">
-            Outbound That Speaks
-            <span className="text-gradient"> Your Language</span>
+            Built for
+            <span className="text-gradient"> your market.</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Every industry has unique buyers, pain points, and decision cycles. 
-            We tailor every campaign to resonate with your specific market.
+            Different buyers. Different pain points. Same results.
           </p>
         </motion.div>
 
@@ -99,7 +98,7 @@ const IndustriesSection = () => {
                     </p>
                     
                     <div className="flex items-center text-primary font-medium">
-                      <span>See how it works</span>
+                      <span>Learn more</span>
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
@@ -117,7 +116,7 @@ const IndustriesSection = () => {
           className="text-center mt-12"
         >
           <p className="text-muted-foreground">
-            Don't see your industry? <Link to="/contact" className="text-primary hover:underline">Let's talk</Link> — we've worked with 50+ verticals.
+            Different industry? <Link to="/contact" className="text-primary hover:underline">Let's talk</Link> — we've done 50+ verticals.
           </p>
         </motion.div>
       </div>

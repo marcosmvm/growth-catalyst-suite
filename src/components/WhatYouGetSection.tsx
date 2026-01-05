@@ -51,11 +51,10 @@ const WhatYouGetSection = () => {
         >
           <h2 className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight">
             What you{" "}
-            <span className="gradient-text italic">get</span>
+            <span className="gradient-text italic">get.</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Three pillars that turn cold outreach into a predictable meeting machine — 
-            without putting your domain at risk.
+            Safety. Campaigns. Optimization. Everything handled.
           </p>
         </motion.div>
 
