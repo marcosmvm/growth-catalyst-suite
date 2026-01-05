@@ -34,7 +34,7 @@ const Footer = () => {
               <span className="text-2xl font-bold tracking-tight text-primary">INSIGHTS</span>
             </Link>
             <p className="text-muted-foreground leading-relaxed max-w-xs mb-6">
-              Cold email that actually works. AI-powered outbound for B2B companies who demand results.
+              Cold email that works. Pipeline that grows. Results you can measure.
             </p>
             <div className="exclusive-badge inline-flex text-[10px]">
               Enterprise Ready

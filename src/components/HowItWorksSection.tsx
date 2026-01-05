@@ -41,11 +41,10 @@ const HowItWorksSection = () => {
           className="text-center max-w-3xl mx-auto mb-20"
         >
           <h2 className="text-3xl md:text-5xl font-heading text-foreground mb-6">
-            How it works
+            How it works.
           </h2>
           <p className="text-lg text-muted-foreground">
-            A clear process with built-in safeguards at every step. 
-            You stay in control while we handle the execution.
+            Clear process. Built-in safeguards. You stay in control.
           </p>
         </motion.div>
 

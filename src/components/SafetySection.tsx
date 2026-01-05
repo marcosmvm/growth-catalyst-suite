@@ -53,12 +53,11 @@ const SafetySection = () => {
             Built-in Safeguards
           </div>
           <h2 className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight">
-            How it keeps you{" "}
-            <span className="gradient-text italic">safe</span>
+            You stay in{" "}
+            <span className="gradient-text italic">control.</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Automation without guardrails is dangerous. Here's how we ensure you stay in control 
-            while the system does the heavy lifting.
+            Every campaign paused by default. Every change staged. You approve everything.
           </p>
         </motion.div>
 
@@ -149,8 +148,7 @@ const SafetySection = () => {
               className="mt-8 p-6 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/10"
             >
               <p className="text-sm text-foreground/80 italic">
-                "You're never out of the loop. Every decision the system makes is logged, 
-                every change is staged, and you always have the final say."
+                "Every decision logged. Every change staged. You always have the final say."
               </p>
             </motion.div>
           </motion.div>
