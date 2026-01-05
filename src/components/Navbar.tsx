@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, Sparkles } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,7 +30,6 @@ const Navbar = () => {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [calendlyOpen, setCalendlyOpen] = useState(false);
   const [getStartedOpen, setGetStartedOpen] = useState(false);
-
   const [industriesOpen, setIndustriesOpen] = useState(false);
 
   return (
@@ -38,18 +37,16 @@ const Navbar = () => {
       <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/30">
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-heading text-foreground tracking-tight">OutreachAI</span>
+            {/* Logo - Option A: Wordmark */}
+            <Link to="/" className="flex items-center gap-1">
+              <span className="text-xl font-bold tracking-tight text-foreground">QUANTUM</span>
+              <span className="text-xl font-bold tracking-tight text-primary">INSIGHTS</span>
             </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors outline-none">
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors outline-none">
                   Services
                   <ChevronDown className="w-4 h-4" />
                 </DropdownMenuTrigger>
@@ -69,7 +66,7 @@ const Navbar = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
               <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors outline-none">
+                <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors outline-none">
                   Industries
                   <ChevronDown className="w-4 h-4" />
                 </DropdownMenuTrigger>
@@ -83,16 +80,16 @@ const Navbar = () => {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
-              <Link to="/how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition-colors premium-underline">
+              <Link to="/how-it-works" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors premium-underline">
                 How It Works
               </Link>
-              <Link to="/pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors premium-underline">
+              <Link to="/pricing" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors premium-underline">
                 Pricing
               </Link>
-              <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors premium-underline">
+              <Link to="/about" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors premium-underline">
                 About
               </Link>
-              <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors premium-underline">
+              <Link to="/contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors premium-underline">
                 Contact
               </Link>
             </div>
@@ -124,7 +121,7 @@ const Navbar = () => {
                 <div>
                   <button
                     onClick={() => setServicesOpen(!servicesOpen)}
-                    className="flex items-center justify-between w-full text-muted-foreground hover:text-foreground transition-colors"
+                    className="flex items-center justify-between w-full font-medium text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Services
                     <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
@@ -155,7 +152,7 @@ const Navbar = () => {
                 <div>
                   <button
                     onClick={() => setIndustriesOpen(!industriesOpen)}
-                    className="flex items-center justify-between w-full text-muted-foreground hover:text-foreground transition-colors"
+                    className="flex items-center justify-between w-full font-medium text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Industries
                     <ChevronDown className={`w-4 h-4 transition-transform ${industriesOpen ? 'rotate-180' : ''}`} />
@@ -175,16 +172,16 @@ const Navbar = () => {
                     </div>
                   )}
                 </div>
-                <Link to="/how-it-works" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
+                <Link to="/how-it-works" className="font-medium text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
                   How It Works
                 </Link>
-                <Link to="/pricing" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
+                <Link to="/pricing" className="font-medium text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
                   Pricing
                 </Link>
-                <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
+                <Link to="/about" className="font-medium text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
                   About
                 </Link>
-                <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
+                <Link to="/contact" className="font-medium text-muted-foreground hover:text-foreground transition-colors" onClick={() => setIsOpen(false)}>
                   Contact
                 </Link>
                 <div className="flex flex-col gap-2 pt-4">
