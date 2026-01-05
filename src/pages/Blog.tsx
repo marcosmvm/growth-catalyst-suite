@@ -93,7 +93,7 @@ const Blog = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
             >
-              Outbound That Works
+              Outbound that works.
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -101,7 +101,7 @@ const Blog = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-muted-foreground max-w-2xl mx-auto"
             >
-              Proven strategies to book more meetings. No fluff.
+              Proven strategies. No fluff. Just results.
             </motion.p>
           </div>
         </section>
@@ -197,14 +197,14 @@ const Blog = () => {
             className="container mx-auto text-center max-w-3xl relative z-10"
           >
             <h2 className="text-3xl font-heading text-foreground mb-4">
-              Ready to Get More Meetings?
+              Want us to run your outbound?
             </h2>
             <p className="text-muted-foreground mb-8">
-              We run your campaigns. You close deals.
+              We handle campaigns. You close deals.
             </p>
             <Link to="/contact">
               <Button variant="hero" size="lg" className="gap-2">
-                Get Started <ArrowRight className="w-4 h-4" />
+                Book a Call <ArrowRight className="w-4 h-4" />
               </Button>
             </Link>
           </motion.div>
