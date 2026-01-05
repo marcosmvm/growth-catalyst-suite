@@ -40,22 +40,22 @@ const processSteps = [
   {
     icon: Target,
     title: "Define Your ICP",
-    description: "We identify your ideal buyers by industry, size, tech stack, and decision-maker titles.",
+    description: "We identify your ideal buyers. Industry, size, tech stack, decision-maker titles.",
   },
   {
     icon: Mail,
     title: "Launch Campaigns",
-    description: "Multi-touch email sequences crafted for your vertical, tested and optimized continuously.",
+    description: "Multi-touch sequences built for your vertical. Tested. Optimized. Continuously.",
   },
   {
     icon: Calendar,
     title: "Book Meetings",
-    description: "Qualified prospects land on your calendar, ready to buy.",
+    description: "Qualified prospects on your calendar. Ready to buy.",
   },
   {
     icon: BarChart3,
     title: "Scale & Optimize",
-    description: "Weekly reporting and continuous refinement to maximize pipeline.",
+    description: "Weekly reporting. Continuous refinement. More pipeline.",
   },
 ];
 
@@ -193,11 +193,11 @@ const VerticalLandingPage = ({
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-5xl font-heading font-bold text-foreground mb-6">
-              We Understand
-              <span className="text-gradient"> {industry} Challenges</span>
+              We Know
+              <span className="text-gradient"> {industry}</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Your industry has unique pain points. Here's what we solve for {industry.toLowerCase()} companies every day.
+              Your industry has unique challenges. Here's what we solve for {industry.toLowerCase()} companies every day.
             </p>
           </motion.div>
 
@@ -233,8 +233,8 @@ const VerticalLandingPage = ({
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-5xl font-heading font-bold text-foreground mb-6">
-              How We Drive
-              <span className="text-gradient"> Your Pipeline</span>
+              How It
+              <span className="text-gradient"> Works</span>
             </h2>
           </motion.div>
 

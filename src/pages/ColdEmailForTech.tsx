@@ -6,8 +6,8 @@ const ColdEmailForTech = () => {
     <VerticalLandingPage
       industry="Tech Companies"
       badge="Cold Email for Tech"
-      headline="Reach Enterprise|Decision-Makers|Without the Gatekeepers"
-      subheadline="We help tech companies break into enterprise accounts, build strategic partnerships, and accelerate complex B2B sales cycles."
+      headline="Reach Enterprise|Decision-Makers.|Skip the Gatekeepers."
+      subheadline="We help tech companies break into enterprise accounts and accelerate complex B2B sales cycles."
       icon={Cpu}
       painPoints={[
         {
@@ -16,15 +16,15 @@ const ColdEmailForTech = () => {
         },
         {
           title: "Getting Past Procurement",
-          description: "Reaching the technical decision-maker, not just the gatekeeper, is everything. Our campaigns target the right stakeholders.",
+          description: "Reaching the technical decision-maker, not the gatekeeper, is everything. Our campaigns target the right stakeholders.",
         },
         {
           title: "Building Strategic Partnerships",
-          description: "Technology partnerships drive growth but are hard to initiate. We open doors with potential partners and integrators.",
+          description: "Technology partnerships drive growth but are hard to initiate. We open doors with partners and integrators.",
         },
         {
           title: "Competing with Established Players",
-          description: "Breaking into accounts dominated by incumbents requires precision. Our messaging highlights your unique value prop.",
+          description: "Breaking into accounts dominated by incumbents requires precision. Our messaging highlights your unique value.",
         },
       ]}
       benefits={[
@@ -44,7 +44,7 @@ const ColdEmailForTech = () => {
         { value: "22", label: "Meetings/Month" },
       ]}
       testimonial={{
-        quote: "They helped us break into 3 Fortune 500 accounts in our first quarter. One of those deals is now our largest customer.",
+        quote: "3 Fortune 500 accounts in our first quarter. One of those deals is now our largest customer. Quantum Insights delivers.",
         author: "Jennifer Wu",
         role: "CRO",
         company: "DataFlow Systems",
