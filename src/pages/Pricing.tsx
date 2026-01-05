@@ -181,11 +181,11 @@ const Pricing = () => {
               90-Day Commitment Required
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading mb-6">
-              Pricing built for{" "}
-              <span className="gradient-text">serious outbound</span>
+              Simple pricing.{" "}
+              <span className="gradient-text">Real results.</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We're not a "spray and pray" cold email shop. The engine is designed for B2B teams who care about domain safety and compounding performance—not one-month experiments.
+              No hidden fees. No per-lead charges. Just a flat monthly investment and qualified meetings on your calendar.
             </p>
           </motion.div>
         </div>

@@ -48,7 +48,7 @@ const About = () => {
               transition={{ duration: 0.5 }}
               className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20"
             >
-              About OutreachAI
+              About Quantum Insights
             </motion.span>
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
@@ -56,7 +56,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
             >
-              Your Outsourced Outbound Engine
+              We Get You Meetings. Period.
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -64,7 +64,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-muted-foreground max-w-3xl"
             >
-              We help small and mid-sized B2B companies consistently fill their sales pipeline with qualified prospects—without hiring extra staff or wasting money on ineffective outreach.
+              B2B companies hire us to fill their pipeline with qualified prospects. No extra headcount. No wasted budget. Just results.
             </motion.p>
           </div>
         </section>
@@ -86,13 +86,13 @@ const About = () => {
                 </h2>
                 <div className="space-y-4 text-muted-foreground">
                   <p>
-                    Most small and mid-sized B2B companies know they need outbound sales. But building an internal SDR team is expensive, time-consuming, and risky. Hiring one SDR costs $60-80K+ in salary, tools, and training—with no guarantee they'll perform.
+                    Hiring SDRs is expensive. Training takes months. Turnover kills momentum. Most agencies overpromise and underdeliver.
                   </p>
                   <p>
-                    Meanwhile, agencies often overpromise and underdeliver, flooding inboxes with generic messages that damage your brand and generate zero real opportunities.
+                    We built Quantum Insights because outbound should be simple: you tell us who you want to meet, we get them on your calendar.
                   </p>
                   <p>
-                    We built OutreachAI to be different: a done-for-you outbound service that combines AI-powered targeting with human expertise to deliver what actually matters—qualified meetings with decision-makers who want to talk to you.
+                    No fluff. No hype. Just qualified meetings with decision-makers who want to talk to you.
                   </p>
                 </div>
               </motion.div>

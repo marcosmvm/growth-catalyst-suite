@@ -32,14 +32,12 @@ const CTASection = () => {
             </div>
             
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-heading text-foreground mb-8 leading-tight text-balance">
-              Ready to build a{" "}
-              <span className="gradient-text italic">predictable</span>{" "}
-              outbound engine?
+              Get more meetings.{" "}
+              <span className="gradient-text">Start today.</span>
             </h2>
             
             <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-              Book a 30-minute walkthrough to see how we protect your domain 
-              while generating qualified meetings. No pressure, just clarity.
+              30-minute call. No pressure. See if we can help fill your pipeline.
             </p>
 
             {/* CTA Button */}
