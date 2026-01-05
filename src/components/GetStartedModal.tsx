@@ -106,9 +106,9 @@ const GetStartedModal = ({ open, onOpenChange }: GetStartedModalProps) => {
             <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-6">
               <CheckCircle className="w-8 h-8 text-primary" />
             </div>
-            <h2 className="text-2xl font-heading text-foreground mb-2">Thank You!</h2>
+            <h2 className="text-2xl font-heading text-foreground mb-2">Request received.</h2>
             <p className="text-muted-foreground mb-6">
-              Your free audit request has been submitted. We'll analyze your cold email strategy and get back to you within 24-48 hours.
+              We'll review your cold email strategy and respond within 24-48 hours.
             </p>
             <Button variant="hero" onClick={() => handleClose(false)}>
               Close
@@ -123,7 +123,7 @@ const GetStartedModal = ({ open, onOpenChange }: GetStartedModalProps) => {
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="max-w-lg">
         <DialogHeader>
-          <DialogTitle className="text-xl font-heading">Get Your Free Audit</DialogTitle>
+          <DialogTitle className="text-xl font-heading">Free Audit Request</DialogTitle>
           <p className="text-sm text-muted-foreground">Step {step} of {totalSteps}</p>
         </DialogHeader>
 

@@ -13,7 +13,7 @@ const CalendlyModal = ({ open, onOpenChange }: CalendlyModalProps) => {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-4xl h-[80vh] p-0">
         <DialogHeader className="p-6 pb-0">
-          <DialogTitle className="text-xl font-heading">Schedule a Demo</DialogTitle>
+          <DialogTitle className="text-xl font-heading">Book a Call</DialogTitle>
         </DialogHeader>
         <div className="flex-1 h-full pb-6 px-6">
           <iframe
