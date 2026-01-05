@@ -113,7 +113,7 @@ const Contact = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-6xl font-heading text-foreground mb-6 leading-tight"
             >
-              Ready to Get More Meetings?
+              Let's talk pipeline.
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -121,7 +121,7 @@ const Contact = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-muted-foreground max-w-2xl mx-auto"
             >
-              Tell us who you want to meet. We make it happen.
+              Tell us who you want to reach. We'll show you how.
             </motion.p>
           </div>
         </section>
@@ -230,13 +230,13 @@ const Contact = () => {
               >
                 <div className="glass rounded-2xl p-8 border border-primary/10">
                   <h2 className="text-2xl font-heading text-foreground mb-4">
-                    Prefer to talk?
+                    Prefer a call?
                   </h2>
                   <p className="text-muted-foreground mb-8">
-                    Schedule a 30-minute strategy call to discuss your goals and see if we're a fit. No pressure, no sales pitch—just an honest conversation about your pipeline needs.
+                    30 minutes. No sales pitch. Honest conversation about your pipeline goals and whether we can help.
                   </p>
                   <Button variant="outline" size="lg" className="gap-2 border-primary/30 hover:bg-primary/10">
-                    Schedule a Call <ArrowRight className="w-4 h-4" />
+                    Book a Call <ArrowRight className="w-4 h-4" />
                   </Button>
                 </div>
 
@@ -273,9 +273,9 @@ const Contact = () => {
                 <div className="p-6 glass rounded-xl border border-primary/20 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
                   <div className="relative z-10">
-                    <h3 className="font-heading text-foreground mb-2">🚀 Quick Response Guarantee</h3>
+                    <h3 className="font-heading text-foreground mb-2">24-hour response.</h3>
                     <p className="text-sm text-muted-foreground">
-                      We respond to all inquiries within 24 hours during business days. For urgent matters, call us directly.
+                      Every inquiry answered within one business day. For urgent matters, call directly.
                     </p>
                   </div>
                 </div>

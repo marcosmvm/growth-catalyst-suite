@@ -181,11 +181,11 @@ const Pricing = () => {
               90-Day Commitment Required
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading mb-6">
-              Simple pricing.{" "}
-              <span className="gradient-text">Real results.</span>
+              Clear pricing.{" "}
+              <span className="gradient-text">Predictable pipeline.</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              No hidden fees. No per-lead charges. Just a flat monthly investment and qualified meetings on your calendar.
+              No hidden fees. No per-lead charges. Flat monthly investment. Qualified meetings on your calendar.
             </p>
           </motion.div>
         </div>
@@ -292,10 +292,10 @@ const Pricing = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-heading mb-4">
-              <span className="gradient-text">Best fit</span> if you...
+              We work with teams who...
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We're selective about who we work with. This protects both of us and ensures you get results.
+              Selective partnerships. Better results for everyone.
             </p>
           </motion.div>
           
@@ -330,11 +330,10 @@ const Pricing = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-heading mb-4">
-              Engagement{" "}
-              <span className="gradient-text">rules</span>
+              How we work.
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Clear expectations from both sides. This is how we work together.
+              Clear expectations. No surprises.
             </p>
           </motion.div>
           
