@@ -6,8 +6,8 @@ const ColdEmailForTech = () => {
     <VerticalLandingPage
       industry="Tech Companies"
       badge="Cold Email for Tech"
-      headline="Reach Enterprise|Decision-Makers.|Skip the Gatekeepers."
-      subheadline="We help tech companies break into enterprise accounts and accelerate complex B2B sales cycles."
+      headline="Enterprise accounts.|Decision-makers.|No gatekeepers."
+      subheadline="Break into enterprise. Accelerate complex B2B sales cycles."
       icon={Cpu}
       painPoints={[
         {
@@ -44,7 +44,7 @@ const ColdEmailForTech = () => {
         { value: "22", label: "Meetings/Month" },
       ]}
       testimonial={{
-        quote: "3 Fortune 500 accounts in our first quarter. One of those deals is now our largest customer. Quantum Insights delivers.",
+        quote: "3 Fortune 500 accounts in Q1. One became our largest customer.",
         author: "Jennifer Wu",
         role: "CRO",
         company: "DataFlow Systems",

@@ -6,8 +6,8 @@ const ColdEmailForSaaS = () => {
     <VerticalLandingPage
       industry="SaaS"
       badge="Cold Email for SaaS"
-      headline="More Demos.|Less SDR Burnout.|Better Pipeline."
-      subheadline="We book 15-30 qualified demos per month for SaaS companies. Targeted outbound that cuts through inbox noise."
+      headline="More demos.|Lower CAC.|No SDR burnout."
+      subheadline="15-30 qualified demos per month. Outbound that cuts through inbox noise."
       icon={Code}
       painPoints={[
         {
@@ -44,7 +44,7 @@ const ColdEmailForSaaS = () => {
         { value: "40%", label: "Lower CAC" },
       ]}
       testimonial={{
-        quote: "5 demos a month to 25+ in 90 days. We've already closed $180K in new ARR from Quantum Insights leads.",
+        quote: "5 demos to 25+ in 90 days. $180K ARR closed from their leads.",
         author: "Marcus Chen",
         role: "VP of Sales",
         company: "CloudSync (Series A SaaS)",

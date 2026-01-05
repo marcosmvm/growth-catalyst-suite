@@ -105,7 +105,7 @@ const HeroSection = () => {
             ease: [0.25, 0.1, 0.25, 1]
           }} className="mt-12">
               <Button variant="hero" size="lg" className="group text-base px-8 py-6 h-auto" onClick={() => setGetStartedOpen(true)}>
-                Book a Safety Walkthrough
+                Get Started
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>
